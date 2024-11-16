@@ -3,13 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -17,10 +18,18 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    public const ROLE_ADMIN = 'admin';
+    public const ROLE_USER = 'user';
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+       'name',
+       'user_name',
+       'email',
+       'password',
+       'phone_number',
+       'address',
+       'identification',
+       'role_type',
     ];
 
     /**
