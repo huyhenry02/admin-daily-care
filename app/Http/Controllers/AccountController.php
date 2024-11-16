@@ -11,7 +11,7 @@ class AccountController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('account.index');
+        return view('account.list');
     }
 
     public function showCreate(): View|Factory|Application

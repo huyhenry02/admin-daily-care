@@ -11,7 +11,7 @@ class CleanerController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('cleaner.index');
+        return view('cleaner.list');
     }
 
     public function showCreate(): View|Factory|Application
