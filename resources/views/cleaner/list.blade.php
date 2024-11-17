@@ -14,7 +14,7 @@
         <div class="col-12">
             <div class="card card-stats card-round">
                 <table class="table table-bordered">
-                    <thead>
+                    <thead class="thead-light">
                     <tr>
                         <th scope="col" width="10%">Mã NV</th>
                         <th scope="col">Họ và Tên</th>

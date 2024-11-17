@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->float('rating')->default(0);
             $table->integer('point')->default(0);
+            $table->integer('account_balance')->default(0);
             $table->text('cv')->nullable();
             $table->string('cv_file', 255)->nullable();
             $table->enum('status', ['active', 'inactive']);
@@ -138,6 +139,15 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        // revenue_systems table
+        Schema::create('revenue_systems', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('order_id')->constrained('orders');
+            $table->integer('revenue_percent');
+            $table->integer('revenue_amount');
+            $table->timestamps();
+        });
+
         // Payments table
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
@@ -176,6 +186,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('notifications');
         Schema::dropIfExists('advertisements');
+        Schema::dropIfExists('revenue_systems');
         Schema::dropIfExists('payments');
         Schema::dropIfExists('complaints');
         Schema::dropIfExists('order_applications');

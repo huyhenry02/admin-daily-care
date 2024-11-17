@@ -11,7 +11,7 @@ class AdvertisementController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('advertisement.index');
+        return view('advertisement.list');
     }
 
     public function showCreate(): View|Factory|Application

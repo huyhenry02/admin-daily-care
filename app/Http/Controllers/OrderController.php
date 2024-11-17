@@ -11,7 +11,7 @@ class OrderController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('order.index');
+        return view('order.list');
     }
 
     public function showCreate(): View|Factory|Application

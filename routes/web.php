@@ -45,6 +45,7 @@ Route::group([
         'prefix' => 'cleaner'
     ], function () {
         Route::get('/', [CleanerController::class, 'showIndex'])->name('cleaner.showIndex');
+        Route::get('/contract', [CleanerController::class, 'showIndexContract'])->name('cleaner.showIndexContract');
         Route::get('/create', [CleanerController::class, 'showCreate'])->name('cleaner.showCreate');
         Route::get('/update', [CleanerController::class, 'showUpdate'])->name('cleaner.showUpdate');
         Route::get('/detail', [CleanerController::class, 'showDetail'])->name('cleaner.showDetail');
@@ -79,9 +80,6 @@ Route::group([
         'prefix' => 'report'
     ], function () {
         Route::get('/', [ReportController::class, 'showIndex'])->name('report.showIndex');
-        Route::get('/create', [ReportController::class, 'showCreate'])->name('report.showCreate');
-        Route::get('/update', [ReportController::class, 'showUpdate'])->name('report.showUpdate');
-        Route::get('/detail', [ReportController::class, 'showDetail'])->name('report.showDetail');
     });
 
 });

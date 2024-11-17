@@ -14,6 +14,11 @@ class CleanerController extends Controller
         return view('cleaner.list');
     }
 
+    public function showIndexContract(): View|Factory|Application
+    {
+        return view('cleaner.list-contract');
+    }
+
     public function showCreate(): View|Factory|Application
     {
         return view('cleaner.create');

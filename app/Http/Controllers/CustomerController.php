@@ -11,7 +11,7 @@ class CustomerController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('customer.index');
+        return view('customer.list');
     }
 
     public function showCreate(): View|Factory|Application

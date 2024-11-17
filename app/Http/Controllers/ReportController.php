@@ -13,19 +13,4 @@ class ReportController extends Controller
     {
         return view('report.index');
     }
-
-    public function showCreate(): View|Factory|Application
-    {
-        return view('report.create');
-    }
-
-    public function showUpdate(): View|Factory|Application
-    {
-        return view('report.update');
-    }
-
-    public function showDetail(): View|Factory|Application
-    {
-        return view('report.detail');
-    }
 }

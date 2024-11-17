@@ -11,7 +11,7 @@ class ServiceController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('service.index');
+        return view('service.list');
     }
 
     public function showCreate(): View|Factory|Application
