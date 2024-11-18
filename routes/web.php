@@ -79,7 +79,9 @@ Route::group([
     Route::group([
         'prefix' => 'report'
     ], function () {
-        Route::get('/', [ReportController::class, 'showIndex'])->name('report.showIndex');
+        Route::get('/customer', [ReportController::class, 'showReportCustomer'])->name('report.showReportCustomer');
+        Route::get('/order', [ReportController::class, 'showReportOrder'])->name('report.showReportOrder');
+        Route::get('/revenue', [ReportController::class, 'showReportRevenue'])->name('report.showReportRevenue');
     });
 
 });
