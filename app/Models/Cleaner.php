@@ -10,6 +10,9 @@ class Cleaner extends Model
 {
     protected $table = 'cleaners';
 
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_INACTIVE = 'inactive';
+
     protected $fillable = [
         'user_id',
         'rating',

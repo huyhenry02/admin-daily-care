@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Cleaner;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -11,7 +13,10 @@ class CleanerController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('cleaner.list');
+        $cleaners = Cleaner::all();
+        return view('cleaner.list', [
+            'cleaners' => $cleaners
+        ]);
     }
 
     public function showIndexContract(): View|Factory|Application
@@ -29,8 +34,11 @@ class CleanerController extends Controller
         return view('cleaner.update');
     }
 
-    public function showDetail(): View|Factory|Application
+    public function showDetail(Cleaner $cleaner): View|Factory|Application
     {
-        return view('cleaner.detail');
+        return view('cleaner.detail',
+            [
+                'cleaner' => $cleaner
+            ]);
     }
 }

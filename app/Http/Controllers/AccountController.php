@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -11,7 +12,10 @@ class AccountController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('account.list');
+        $accounts = User::all();
+        return view('account.list', [
+            'accounts' => $accounts
+        ]);
     }
 
     public function showCreate(): View|Factory|Application

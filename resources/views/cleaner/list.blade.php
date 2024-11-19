@@ -1,3 +1,4 @@
+@php use App\Models\Cleaner; @endphp
 @extends('layouts.main')
 @section('content')
     <div
@@ -26,151 +27,49 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>NV-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>8</td>
-                        <td>4.6</td>
-                        <td><span class="badge badge-success">Đang hoạt động</span></td>
-                        <td>
-                            - Dọn dẹp <br>
-                            - Đi chợ
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('cleaner.showDetail') }}">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>NV-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>8</td>
-                        <td>4.6</td>
-                        <td><span class="badge badge-success">Đang hoạt động</span></td>
-                        <td>
-                            - Dọn dẹp <br>
-                            - Đi chợ
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>NV-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>8</td>
-                        <td>4.6</td>
-                        <td><span class="badge badge-success">Đang hoạt động</span></td>
-                        <td>
-                            - Dọn dẹp <br>
-                            - Đi chợ
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>NV-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>8</td>
-                        <td>4.6</td>
-                        <td><span class="badge badge-success">Đang hoạt động</span></td>
-                        <td>
-                            - Dọn dẹp <br>
-                            - Đi chợ
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>NV-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>8</td>
-                        <td>4.6</td>
-                        <td><span class="badge badge-success">Đang hoạt động</span></td>
-                        <td>
-                            - Dọn dẹp <br>
-                            - Đi chợ
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach( $cleaners as $key => $cleaner )
+                        <tr>
+                            <td>NV-000{{ $key+1 }}</td>
+                            <td>{{ $cleaner->user->name ?? '' }}</td>
+                            <td>{{ $cleaner->point ?? 0 }}</td>
+                            <td>{{ $cleaner->rating ?? 0 }}</td>
+                            <td>
+                                @if( $cleaner->status === Cleaner::STATUS_ACTIVE )
+                                    <span class="badge bg-success">Đang hoạt động</span>
+                                @else
+                                    <span class="badge bg-danger">Đã nghỉ việc</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if( $cleaner->can_cleaning === 1 )
+                                    - Dọn dẹp <br>
+                                @endif
+                                @if( $cleaner->can_market === 1 )
+                                    - Đi chợ <br>
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group dropdown">
+                                    <button
+                                        class="btn btn-primary dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                    >
+                                        Chọn hành động
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('cleaner.showDetail', $cleaner->id) }}">Xem chi
+                                                tiết</a>
+                                            <a class="dropdown-item" href="#">Sửa thông tin</a>
+                                            <a class="dropdown-item" href="#">Xóa tài khoản</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+
                     </tbody>
                 </table>
             </div>

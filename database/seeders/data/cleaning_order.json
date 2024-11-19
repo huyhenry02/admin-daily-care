@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "order_id": 2,
+        "name_customer": "Customer A",
+        "phone_customer": "0912345678",
+        "home_type": "apartment",
+        "address": "456 Đường Nguyễn Huệ, Quận 3, TP.HCM",
+        "total_price": 500000,
+        "deposit": 100000,
+        "status": "processing",
+        "start_time": "2024-11-19T15:00:00",
+        "service_cleaning_hour_id": 1,
+        "note": "Dọn phòng khách và nhà bếp",
+        "is_cleaning_other": false,
+        "is_cook": true,
+        "has_tool": true,
+        "has_animals": "Chó",
+        "created_at": "2024-11-19T14:00:00",
+        "updated_at": "2024-11-19T14:30:00"
+    }
+]

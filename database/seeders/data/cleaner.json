@@ -1,0 +1,24 @@
+[
+    {
+        "id" : 1,
+        "user_id" : 3,
+        "rating" : 5,
+        "point" :  10,
+        "account_balance" : 1000000,
+        "cv" :  "Cv của Cleaner A",
+        "status" :  "active",
+        "can_cleaning" : 1,
+        "can_market" :  1
+    },
+    {
+        "id" : 2,
+        "user_id" : 4,
+        "rating" : 3.6,
+        "point" :  8,
+        "account_balance" : 4000000,
+        "cv" :  "Cv của Cleaner B",
+        "status" :  "active",
+        "can_cleaning" : 1,
+        "can_market" :  1
+    }
+]

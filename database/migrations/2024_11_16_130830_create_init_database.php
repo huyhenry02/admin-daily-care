@@ -54,8 +54,6 @@ return new class extends Migration
             $table->date('feedback_date')->nullable();
             $table->integer('number_of_repetition')->default(0);
             $table->boolean('is_required')->default(false);
-            $table->boolean('has_tool')->default(false);
-            $table->string('has_animals', 255)->nullable();
             $table->timestamps();
         });
 
@@ -84,6 +82,8 @@ return new class extends Migration
             $table->text('note')->nullable();
             $table->boolean('is_cleaning_other')->default(false);
             $table->boolean('is_cook')->default(false);
+            $table->boolean('has_tool')->default(false);
+            $table->string('has_animals', 255)->nullable();
             $table->timestamps();
         });
 

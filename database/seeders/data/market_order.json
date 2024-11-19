@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "order_id": 1,
+        "from_name_customer": "Customer A",
+        "from_phone_customer": "0912345678",
+        "from_home_type": "apartment",
+        "from_address": "456 Đường Nguyễn Huệ, Quận 3, TP.HCM",
+        "to_name_customer": "Nguyễn Văn An",
+        "to_phone_customer": "0911223344",
+        "to_home_type": "villa",
+        "to_address": "789 Đường Lê Văn Sỹ, Quận Phú Nhuận, TP.HCM",
+        "deposit_price": 50000,
+        "service_price": 150000,
+        "expect_price": 200000,
+        "bought_price": 195000,
+        "status": "completed",
+        "delivery_time": "2024-11-20T10:30:00",
+        "note": "Mua thực phẩm tươi và giao nhanh",
+        "created_at": "2024-11-19T10:00:00",
+        "updated_at": "2024-11-20T12:00:00"
+    }
+]

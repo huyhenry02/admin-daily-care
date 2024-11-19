@@ -25,164 +25,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>KH-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>nguyen_a@gmail.com</td>
-                        <td>HN</td>
-                        <td>12</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('customer.showDetail') }}">Xem chi
-                                            tiết</a>
-                                        <a class="dropdown-item" href="{{ route('customer.showUpdate') }}">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>KH-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>nguyen_a@gmail.com</td>
-                        <td>HN</td>
-                        <td>12</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('cleaner.showDetail') }}">Xem chi
-                                            tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>KH-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>nguyen_a@gmail.com</td>
-                        <td>HN</td>
-                        <td>12</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('cleaner.showDetail') }}">Xem chi
-                                            tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>KH-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>nguyen_a@gmail.com</td>
-                        <td>HN</td>
-                        <td>12</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('cleaner.showDetail') }}">Xem chi
-                                            tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>KH-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>nguyen_a@gmail.com</td>
-                        <td>HN</td>
-                        <td>12</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('cleaner.showDetail') }}">Xem chi
-                                            tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>KH-0001</td>
-                        <td>Nguyen Van A</td>
-                        <td>nguyen_a@gmail.com</td>
-                        <td>HN</td>
-                        <td>12</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('cleaner.showDetail') }}">Xem chi
-                                            tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-
-
+                    @foreach( $customers as $key => $customer )
+                        <tr>
+                            <td>KH-000{{ $key+1 }}</td>
+                            <td>{{ $customer->name ?? '' }}</td>
+                            <td>{{ $customer->email ?? '' }}</td>
+                            <td>{{ $customer->address ?? '' }}</td>
+                            <td>{{ $customer->orders()->count() ?? 0 }}</td>
+                            <td class="text-center">
+                                <div class="btn-group dropdown">
+                                    <button
+                                        class="btn btn-primary dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                    >
+                                        Chọn hành động
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('customer.showDetail', $customer->id) }}">Xem chi
+                                                tiết</a>
+                                            <a class="dropdown-item" href="{{ route('customer.showUpdate') }}">Sửa thông tin</a>
+                                            <a class="dropdown-item" href="#">Xóa tài khoản</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

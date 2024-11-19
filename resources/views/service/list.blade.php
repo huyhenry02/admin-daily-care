@@ -24,126 +24,33 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Dịch vụ 4h - 100m2</td>
-                        <td>4h</td>
-                        <td>200.000 VNĐ</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Dịch vụ 4h - 100m2</td>
-                        <td>4h</td>
-                        <td>200.000 VNĐ</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Dịch vụ 4h - 100m2</td>
-                        <td>4h</td>
-                        <td>200.000 VNĐ</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Dịch vụ 4h - 100m2</td>
-                        <td>4h</td>
-                        <td>200.000 VNĐ</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Dịch vụ 4h - 100m2</td>
-                        <td>4h</td>
-                        <td>200.000 VNĐ</td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach( $services as $key => $service )
+                        <tr>
+                            <td>{{ $key+1 }}</td>
+                            <td>{{ $service->name ?? '' }}</td>
+                            <td>{{ $service->hour }}h</td>
+                            <td>
+                                {{ number_format($service->price) }} VNĐ
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group dropdown">
+                                    <button
+                                        class="btn btn-primary dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                    >
+                                        Chọn hành động
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Sửa thông tin</a>
+                                            <a class="dropdown-item" href="{{ route('service.delete', $service->id) }}">Xóa dịch vụ</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

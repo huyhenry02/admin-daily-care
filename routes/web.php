@@ -11,17 +11,20 @@ use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return redirect()->route('auth.showLogin');
 });
 
 Route::group([
     'prefix' => 'auth'
 ], function () {
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.showLogin');
+    Route::post('/post_login', [AuthController::class, 'postLogin'])->name('auth.post_login');
+    Route::get('/logout', [AuthController::class, 'postLogout'])->name('auth.postLogout');
 });
 
 Route::group([
-    'prefix' => 'admin'
+    'prefix' => 'admin',
+    'middleware' => 'auth'
 ], function () {
     Route::group([
         'prefix' => 'account'
@@ -48,7 +51,7 @@ Route::group([
         Route::get('/contract', [CleanerController::class, 'showIndexContract'])->name('cleaner.showIndexContract');
         Route::get('/create', [CleanerController::class, 'showCreate'])->name('cleaner.showCreate');
         Route::get('/update', [CleanerController::class, 'showUpdate'])->name('cleaner.showUpdate');
-        Route::get('/detail', [CleanerController::class, 'showDetail'])->name('cleaner.showDetail');
+        Route::get('/detail/{cleaner}', [CleanerController::class, 'showDetail'])->name('cleaner.showDetail');
     });
 
     Route::group([
@@ -57,7 +60,7 @@ Route::group([
         Route::get('/', [CustomerController::class, 'showIndex'])->name('customer.showIndex');
         Route::get('/create', [CustomerController::class, 'showCreate'])->name('customer.showCreate');
         Route::get('/update', [CustomerController::class, 'showUpdate'])->name('customer.showUpdate');
-        Route::get('/detail', [CustomerController::class, 'showDetail'])->name('customer.showDetail');
+        Route::get('/detail/{customer}', [CustomerController::class, 'showDetail'])->name('customer.showDetail');
     });
 
     Route::group([
@@ -75,6 +78,9 @@ Route::group([
         Route::get('/create', [ServiceController::class, 'showCreate'])->name('service.showCreate');
         Route::get('/update', [ServiceController::class, 'showUpdate'])->name('service.showUpdate');
         Route::get('/detail', [ServiceController::class, 'showDetail'])->name('service.showDetail');
+
+        Route::post('/create', [ServiceController::class, 'postCreate'])->name('service.postCreate');
+        Route::get('/delete/{service}', [ServiceController::class, 'delete'])->name('service.delete');
     });
     Route::group([
         'prefix' => 'report'

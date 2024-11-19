@@ -1,0 +1,46 @@
+[
+    {
+        "id" : 1,
+        "name": "Super admin",
+        "user_name": "super_admin",
+        "email": "admin@example.com",
+        "password": "1",
+        "phone_number": "0912345678",
+        "address": "123 Đường Lê Lợi, Quận 1, TP.HCM",
+        "identification": "012345678901",
+        "role_type": "admin"
+    },
+    {
+        "id" : 2,
+        "name": "Customer A",
+        "user_name": "customer_a",
+        "email": "customer_a@example.com",
+        "password": "1",
+        "phone_number": "0912345678",
+        "address": "456 Đường Nguyễn Huệ, Quận 3, TP.HCM",
+        "identification": "987654321012",
+        "role_type": "customer"
+    },
+    {
+        "id" : 3,
+        "name": "Cleaner A",
+        "user_name": "cleaner_a",
+        "email": "cleaner_a@example.com",
+        "password": "1",
+        "phone_number": "0931234569",
+        "address": "789 Đường Hoàng Diệu, Quận 5, TP.HCM",
+        "identification": "123456789456",
+        "role_type": "cleaner"
+    },
+    {
+        "id" : 4,
+        "name": "Cleaner B",
+        "user_name": "cleaner_b",
+        "email": "cleaner_b@example.com",
+        "password": "1",
+        "phone_number": "0931234539",
+        "address": "789 Đường Hoàng Diệu, Quận 5, TP.HCM",
+        "identification": "123456789356",
+        "role_type": "cleaner"
+    }
+]

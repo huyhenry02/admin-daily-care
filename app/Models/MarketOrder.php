@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MarketOrder extends Model
 {
-    protected $table = 'market_orders';
+    protected $table = 'market_order';
     protected $fillable = [
         'order_id',
         'from_name_customer',

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CleaningOrder extends Model
 {
-    protected $table = 'cleaning_orders';
+    protected $table = 'cleaning_order';
 
     protected $fillable = [
         'order_id',
@@ -23,6 +23,8 @@ class CleaningOrder extends Model
         'note',
         'is_cleaning_other',
         'is_cook',
+        'has_tool',
+        'has_animals',
     ];
 
     public function user(): BelongsTo

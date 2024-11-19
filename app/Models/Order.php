@@ -11,6 +11,18 @@ class Order extends Model
 {
     protected $table = 'orders';
 
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_GOING = 'going';
+    public const STATUS_PROCESSING = 'processing';
+    public const STATUS_COMPLETED = 'completed';
+    public const STATUS_COMPLAINING = 'complaining';
+    public const PAY_STATUS_PENDING = 'pending';
+    public const PAY_STATUS_DEPOSITED = 'deposited';
+    public const PAY_STATUS_PAID = 'paid';
+    public const PAY_STATUS_RETURN_AMOUNT = 'return_amount';
+    public const SERVICE_TYPE_MARKET = 'market';
+    public const SERVICE_TYPE_CLEAN = 'clean';
+
     protected $fillable = [
         'customer_id',
         'cleaner_id',

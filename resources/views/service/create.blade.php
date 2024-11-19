@@ -9,6 +9,8 @@
     </div>
     <div class="row">
         <div class="col-12">
+            <form method="POST" action="{{ route('service.postCreate') }}">
+                @csrf
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">Thông tin cần lưu</div>
@@ -16,6 +18,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
+
                             <div class="form-group">
                                 <label for="name">Tên dịch vụ</label>
                                 <div class="input-group">
@@ -33,10 +36,11 @@
                             <div class="form-group">
                                 <label for="price">Giá dịch vụ</label>
                                 <div class="input-group">
-                                    <input type="email" class="form-control" id="email" name="price"
+                                    <input type="number" class="form-control" id="email" name="price"
                                            placeholder="Nhập Giá dịch vụ">
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -45,6 +49,7 @@
                 <button class="btn btn-success">Lưu</button>
                 <button class="btn btn-danger">Hủy</button>
             </div>
+            </form>
         </div>
     </div>
 @endsection

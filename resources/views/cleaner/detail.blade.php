@@ -1,3 +1,6 @@
+@php
+use App\Models\Cleaner;
+ @endphp
 @extends('layouts.main')
 @section('content')
     <div
@@ -11,7 +14,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Mã NV: NV-0001</div>
+                    <div class="card-title">Mã NV: NV-000{{ $cleaner->id }}</div>
                 </div>
                 <div class="card-body">
                     <div class="row mb-4">
@@ -25,7 +28,7 @@
                                     </th>
                                     <td>
                                             <span
-                                                style="font-size: 1rem; color: #666; margin-left: 10px">Nguyễn Văn A</span>
+                                                style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->name ?? '' }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -35,7 +38,7 @@
                                     </th>
                                     <td>
                                         <span
-                                            style="font-size: 1rem; color: #666; margin-left: 10px">nguyen_a@gmail.com</span>
+                                            style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->email ?? '' }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -45,7 +48,7 @@
                                     </th>
                                     <td colspan="2">
                                             <span
-                                                style="font-size: 1rem; color: #666; margin-left: 10px">+846464646</span>
+                                                style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->phone_number ?? '' }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -55,7 +58,7 @@
                                     </th>
                                     <td colspan="2">
                                             <span
-                                                style="font-size: 1rem; color: #666; margin-left: 10px">022344343427</span>
+                                                style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->identification ?? '' }}</span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -71,7 +74,11 @@
                                                   style="font-size: 1.25rem; color: #333;">Trạng thái: </span>
                                     </th>
                                     <td>
-                                        <span class="badge badge-success">Đang hoạt động</span>
+                                        @if( $cleaner->status === Cleaner::STATUS_ACTIVE )
+                                            <span class="badge bg-success">Đang hoạt động</span>
+                                        @else
+                                            <span class="badge bg-danger">Đã nghỉ việc</span>
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr>
@@ -81,7 +88,7 @@
                                     </th>
                                     <td>
                                             <span
-                                                style="font-size: 1rem; color: #666; margin-left: 10px">nguyen_a</span>
+                                                style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->user_name ?? '' }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -90,7 +97,7 @@
                                                   style="font-size: 1.25rem; color: #333;">Địa chỉ: </span>
                                     </th>
                                     <td colspan="2">
-                                        <span style="font-size: 1rem; color: #666; margin-left: 10px">Hà nội</span>
+                                        <span style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->address ?? '' }}</span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -101,29 +108,30 @@
                     <div class="mb-4">
                         <span class="fw-bold" style="font-size: 1.25rem; color: #333;">Khả năng nghiệp vụ: </span>
                         <p>
-                            - Dọn dẹp <br>
-                            - Đi chợ
+                            @if( $cleaner->can_cleaning === 1 )
+                                - Dọn dẹp <br>
+                            @endif
+                            @if( $cleaner->can_market === 1 )
+                                - Đi chợ <br>
+                            @endif
                         </p>
                     </div>
                     <div class="mb-4">
                         <span class="fw-bold" style="font-size: 1.25rem; color: #333;">Mô tả CV: </span>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                            has been the industry's standard dummy text ever since the 1500s, when an unknown
-                            printer took a galley of type and scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged. It was popularised in the 1960s with the release of
-                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                            publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            {{ $cleaner->cv ?? '' }}
                         </p>
                     </div>
                     <div class="mb-4">
                         <span class="fw-bold" style="font-size: 1.25rem; color: #333;">File đính kèm CV: </span>
-                        <a href=""
-                           target="_blank">
-                            <i class="fas fa-file-pdf"></i>
-                            <span>CV_CUA_NHAN_VIEN</span>
-                        </a>
+                        @if(!empty($cleaner->cv_file))
+                            <a href=""
+                               target="_blank">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>CV của nhân viên</span>
+                            </a>
+                        @endif
+
                     </div>
                     <div class="row mb-3 mt-5">
                         <div class="col-6">
