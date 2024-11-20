@@ -30,6 +30,9 @@ $routesCustomer = [
 
 $routesOrder = [
     'order.showIndex',
+    'order.showComplainCustomer',
+    'order.showComplainCleaner',
+    'order.showDetailComplaint',
     'order.showCreate',
     'order.showUpdate',
     'order.showDetail',
@@ -168,19 +171,14 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                                 <span class="sub-item">Danh sách đơn hàng</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <span class="sub-item">Khiếu nại nhân viên</span>
+                        <li class="{{ request()->routeIs('order.showComplainCleaner') ? 'active' : '' }}">
+                            <a href="{{ route('order.showComplainCleaner') }}">
+                                <span class="sub-item">Khiếu nại của nhân viên</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <span class="sub-item">Khiếu nại khách hàng</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="sub-item">Phản hồi đơn hàng</span>
+                        <li class="{{ request()->routeIs('order.showComplainCustomer') ? 'active' : '' }}">
+                            <a href="{{ route('order.showComplainCustomer') }}">
+                                <span class="sub-item">Khiếu nại của khách hàng</span>
                             </a>
                         </li>
                     </ul>

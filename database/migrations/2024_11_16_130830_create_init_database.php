@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('account_balance')->default(0);
             $table->text('cv')->nullable();
             $table->string('cv_file', 255)->nullable();
+            $table->string('temporary_residence_address', 255);
             $table->enum('status', ['active', 'inactive']);
             $table->boolean('can_cleaning')->default(false);
             $table->boolean('can_market')->default(false);

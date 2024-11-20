@@ -6,6 +6,7 @@
         "point" :  10,
         "account_balance" : 1000000,
         "cv" :  "Cv của Cleaner A",
+        "temporary_residence_address" :  "Địa chỉ của Cleaner A",
         "status" :  "active",
         "can_cleaning" : 1,
         "can_market" :  1
@@ -16,6 +17,7 @@
         "rating" : 3.6,
         "point" :  8,
         "account_balance" : 4000000,
+        "temporary_residence_address" :  "Địa chỉ của Cleaner B",
         "cv" :  "Cv của Cleaner B",
         "status" :  "active",
         "can_cleaning" : 1,

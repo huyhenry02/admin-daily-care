@@ -104,7 +104,7 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">STT</th>
-                                <th scope="col">Mã ĐH</th>
+                                <th scope="col">Mã ĐH</th>a
                                 <th scope="col">Loại dịch vụ</th>
                                 <th scope="col">Trạng thái đơn hàng</th>
                                 <th scope="col">Trạng thái thanh toán</th>
@@ -113,7 +113,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($customer->orders as $key => $order)
+                            @foreach( $customer->orders as $key => $order )
                                 <tr>
                                     <td>{{ $key+1 }}</td>
                                     <td>DH-000{{ $key+1 }}</td>
@@ -177,6 +177,7 @@
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
                                                     <a class="dropdown-item" href="#">Sửa thông tin</a>
+                                                    <a class="dropdown-item" href="{{ route('order.showDetail', $order->id) }}">Xem thông tin</a>
                                                     <a class="dropdown-item" href="#">Xóa đơn hàng</a>
                                                 </li>
                                             </ul>

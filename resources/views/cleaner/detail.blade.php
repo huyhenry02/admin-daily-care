@@ -1,6 +1,6 @@
 @php
-use App\Models\Cleaner;
- @endphp
+    use App\Models\Cleaner;use App\Models\Contract;
+@endphp
 @extends('layouts.main')
 @section('content')
     <div
@@ -97,7 +97,8 @@ use App\Models\Cleaner;
                                                   style="font-size: 1.25rem; color: #333;">Địa chỉ: </span>
                                     </th>
                                     <td colspan="2">
-                                        <span style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->address ?? '' }}</span>
+                                        <span
+                                            style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->address ?? '' }}</span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -125,7 +126,7 @@ use App\Models\Cleaner;
                     <div class="mb-4">
                         <span class="fw-bold" style="font-size: 1.25rem; color: #333;">File đính kèm CV: </span>
                         @if(!empty($cleaner->cv_file))
-                            <a href=""
+                            <a href="{{ $cleaner->cv_file }}"
                                target="_blank">
                                 <i class="fas fa-file-pdf"></i>
                                 <span>CV của nhân viên</span>
@@ -135,10 +136,15 @@ use App\Models\Cleaner;
                     </div>
                     <div class="row mb-3 mt-5">
                         <div class="col-6">
-                            <h6 class="fw-semibold">Các Hợp đồng của Nhân Viên: 7 hợp đồng</h6>
+                            <h6 class="fw-semibold">Các Hợp đồng của Nhân
+                                Viên: {{ $cleaner->contracts()->count() ?? 0 }} hợp đồng</h6>
                         </div>
                         <div class="col-6 d-flex justify-content-end">
-                            <a href="#" class="btn btn-primary btn-round">Thêm mới hợp đồng</a>
+                            <button class="btn btn-primary btn-round" data-bs-toggle="modal"
+                                    data-bs-target="#createContractModal" data-cleaner-id="{{ $cleaner->id }}">Thêm mới
+                                hợp đồng
+                            </button>
+
                         </div>
                     </div>
                     <div class="mb-4">
@@ -156,161 +162,62 @@ use App\Models\Cleaner;
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Hợp đồng lao động</td>
-                                <td>12-03-2024</td>
-                                <td>12-03-2026</td>
-                                <td>Đang hoạt động</td>
-                                <td class="text-center">
-                                    <a href=""
-                                       target="_blank">
-                                        <i class="fas fa-file-pdf"></i>
-                                        <span>Hợp đồng lao động</span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                        <button
-                                            class="btn btn-primary dropdown-toggle"
-                                            type="button"
-                                            data-bs-toggle="dropdown"
-                                        >
-                                            Chọn hành động
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                                <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Hợp đồng lao động</td>
-                                <td>12-03-2024</td>
-                                <td>12-03-2026</td>
-                                <td>Đang hoạt động</td>
-                                <td class="text-center">
-                                    <a href=""
-                                       target="_blank">
-                                        <i class="fas fa-file-pdf"></i>
-                                        <span>Hợp đồng lao động</span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                        <button
-                                            class="btn btn-primary dropdown-toggle"
-                                            type="button"
-                                            data-bs-toggle="dropdown"
-                                        >
-                                            Chọn hành động
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                                <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Hợp đồng lao động</td>
-                                <td>12-03-2024</td>
-                                <td>12-03-2026</td>
-                                <td>Đang hoạt động</td>
-                                <td class="text-center">
-                                    <a href=""
-                                       target="_blank">
-                                        <i class="fas fa-file-pdf"></i>
-                                        <span>Hợp đồng lao động</span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                        <button
-                                            class="btn btn-primary dropdown-toggle"
-                                            type="button"
-                                            data-bs-toggle="dropdown"
-                                        >
-                                            Chọn hành động
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                                <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Hợp đồng lao động</td>
-                                <td>12-03-2024</td>
-                                <td>12-03-2026</td>
-                                <td>Đang hoạt động</td>
-                                <td class="text-center">
-                                    <a href=""
-                                       target="_blank">
-                                        <i class="fas fa-file-pdf"></i>
-                                        <span>Hợp đồng lao động</span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                        <button
-                                            class="btn btn-primary dropdown-toggle"
-                                            type="button"
-                                            data-bs-toggle="dropdown"
-                                        >
-                                            Chọn hành động
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                                <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Hợp đồng lao động</td>
-                                <td>12-03-2024</td>
-                                <td>12-03-2026</td>
-                                <td>Đang hoạt động</td>
-                                <td class="text-center">
-                                    <a href=""
-                                       target="_blank">
-                                        <i class="fas fa-file-pdf"></i>
-                                        <span>Hợp đồng lao động</span>
-                                    </a>
-                                </td>
-                                <td>
-                                    <div class="btn-group dropdown">
-                                        <button
-                                            class="btn btn-primary dropdown-toggle"
-                                            type="button"
-                                            data-bs-toggle="dropdown"
-                                        >
-                                            Chọn hành động
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                                <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            @foreach( $cleaner->contracts as $key => $contract )
+                                <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $contract->name ?? '' }}</td>
+                                    <td>{{ $contract->start_date ?? '' }}</td>
+                                    <td>{{ $contract->end_date ?? '' }}</td>
+                                    <td>
+                                        @if( $contract->status === Contract::STATUS_ACTIVE )
+                                            <span class="badge bg-success">Đang hoạt động</span>
+                                        @else
+                                            <span class="badge bg-danger">Đã kết thúc</span>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if(!empty($contract->attachment_file))
+                                            <a href="{{ $contract->attachment_file }}"
+                                               target="_blank">
+                                                <i class="fas fa-file-pdf"></i>
+                                                <span>Hợp đồng lao động</span>
+                                            </a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <div class="btn-group dropdown">
+                                            <button
+                                                class="btn btn-primary dropdown-toggle"
+                                                type="button"
+                                                data-bs-toggle="dropdown"
+                                            >
+                                                Chọn hành động
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <button class="dropdown-item"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editContractModal"
+                                                            data-cleaner-id="{{ $cleaner->id }}"
+                                                            data-contract-id="{{ $contract->id }}"
+                                                            data-name="{{ $contract->name }}"
+                                                            data-commission="{{ $contract->commission }}"
+                                                            data-start-date="{{ $contract->start_date }}"
+                                                            data-end-date="{{ $contract->end_date }}"
+                                                            data-terms="{{ $contract->terms }}"
+                                                            data-attachment-file="{{ $contract->attachment_file  }}"
+                                                            data-status="{{ $contract->status }}">
+
+                                                        Sửa thông tin
+                                                    </button>
+
+                                                    <a class="dropdown-item" href="{{ route('cleaner.deleteContract', $contract->id) }}">Xóa hợp đồng</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -318,6 +225,8 @@ use App\Models\Cleaner;
             </div>
         </div>
     </div>
+    @include('modal.create_contract')
+    @include('modal.edit_contract')
     <style>
         .approval-history-list {
             margin: 0;

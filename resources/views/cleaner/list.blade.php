@@ -61,7 +61,7 @@
                                         <li>
                                             <a class="dropdown-item" href="{{ route('cleaner.showDetail', $cleaner->id) }}">Xem chi
                                                 tiết</a>
-                                            <a class="dropdown-item" href="#">Sửa thông tin</a>
+                                            <a class="dropdown-item" href="{{ route('cleaner.showUpdate', $cleaner->id) }}">Sửa thông tin</a>
                                             <a class="dropdown-item" href="#">Xóa tài khoản</a>
                                         </li>
                                     </ul>

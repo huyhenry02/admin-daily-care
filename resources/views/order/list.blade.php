@@ -92,7 +92,7 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
                                         <li>
-                                            <a class="dropdown-item" href="#">Xem chi tiết</a>
+                                            <a class="dropdown-item" href="{{ route('order.showDetail', $order->id) }}">Xem chi tiết</a>
                                             <a class="dropdown-item" href="#">Sửa thông tin</a>
                                             <a class="dropdown-item" href="#">Xóa đơn hàng</a>
                                         </li>

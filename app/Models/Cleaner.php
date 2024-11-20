@@ -19,6 +19,7 @@ class Cleaner extends Model
         'point',
         'cv',
         'cv_file',
+        'temporary_residence_address',
         'status',
         'can_cleaning',
         'can_market',

@@ -1,3 +1,6 @@
+@php
+    use App\Models\Cleaner;use App\Models\Contract;
+@endphp
 @extends('layouts.main')
 @section('content')
     <div
@@ -5,9 +8,6 @@
     >
         <div>
             <h3 class="fw-bold mb-3">Danh sách Hợp đồng</h3>
-        </div>
-        <div class="ms-md-auto py-2 py-md-0">
-            <a href="" class="btn btn-primary btn-round">Thêm mới Hợp đồng</a>
         </div>
     </div>
     <div class="row">
@@ -22,36 +22,53 @@
                         <th scope="col">Ngày bắt đầu</th>
                         <th scope="col">Ngày kết thúc</th>
                         <th scope="col">Trạng thái</th>
+                        <th scope="col">File đính kkèm</th>
                         <th scope="col" width="10%"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>HĐ-0001</td>
-                        <td>Hợp đồng lao động</td>
-                        <td>Nguyen Van A</td>
-                        <td>12-03-2023</td>
-                        <td>12-03-2026</td>
-                        <td><span class="badge badge-success">Đang hoạt động</span></td>
-                        <td class="text-center">
-                            <div class="btn-group dropdown">
-                                <button
-                                    class="btn btn-primary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    Chọn hành động
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('cleaner.showDetail') }}">Xem chi tiết</a>
-                                        <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        <a class="dropdown-item" href="#">Xóa hợp đồng</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach( $contracts as $key => $contract )
+                        <tr>
+                            <td>HD-000{{ $key+1 }}</td>
+                            <td>{{ $contract->name ?? '' }}</td>
+                            <td>{{ $contract->cleaner?->user?->name ?? '' }}</td>
+                            <td>{{ $contract->start_date  ?? '' }}</td>
+                            <td>{{ $contract->end_date  ?? '' }}</td>
+                            <td>
+                                @if( $contract->status === Contract::STATUS_ACTIVE )
+                                    <span class="badge bg-success">Đang hoạt động</span>
+                                @else
+                                    <span class="badge bg-danger">Đã kết thúc</span>
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if(!empty($contract->attachment_file))
+                                    <a href="{{ $contract->attachment_file }}"
+                                       target="_blank">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Hợp đồng lao động</span>
+                                    </a>
+                                @endif
+                            </td>
+                            <td>
+                                <div class="btn-group dropdown">
+                                    <button
+                                        class="btn btn-primary dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                    >
+                                        Chọn hành động
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Sửa thông tin</a>
+                                            <a class="dropdown-item" href="{{ route('cleaner.deleteContract', $contract->id) }}">Xóa hợp đồng</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

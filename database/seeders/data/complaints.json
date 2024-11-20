@@ -1,0 +1,18 @@
+[
+    {
+        "id" : 1,
+        "order_id" : 1,
+        "complaint_by_id" : 2,
+        "description" :  "Khiếu nại của khách hàng",
+        "evidence" : "Bằng chứng 1",
+        "status" :  "pending"
+    },
+    {
+        "id" : 2,
+        "order_id" : 2,
+        "complaint_by_id" : 3,
+        "description" :  "Khiếu nại của nhân viên",
+        "evidence" : "Bằng chứng 2",
+        "status" :  "pending"
+    }
+]

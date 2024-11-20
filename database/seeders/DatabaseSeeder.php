@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             MarketOrderSeeder::class,
             MarketOrderDetailSeeder::class,
-            CleanerOrderSeeder::class
+            CleanerOrderSeeder::class,
+            ComplaintSeeder::class,
         ]);
     }
 }

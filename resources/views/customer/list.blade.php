@@ -6,9 +6,6 @@
         <div>
             <h3 class="fw-bold mb-3">Danh sách Khách hàng</h3>
         </div>
-        <div class="ms-md-auto py-2 py-md-0">
-            <a href="{{ route('customer.showCreate') }}" class="btn btn-primary btn-round">Thêm mới khách hàng</a>
-        </div>
     </div>
     <div class="row">
         <div class="col-12">

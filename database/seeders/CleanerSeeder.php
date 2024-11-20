@@ -23,6 +23,7 @@ class CleanerSeeder extends Seeder
                 'rating' => $item->rating,
                 'point' => $item->point,
                 'cv' => $item->cv,
+                'temporary_residence_address' => $item->temporary_residence_address,
                 'status' => $item->status,
                 'can_cleaning' => $item->can_cleaning,
                 'can_market' => $item->can_market,
