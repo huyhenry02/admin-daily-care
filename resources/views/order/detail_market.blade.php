@@ -61,33 +61,19 @@
                         <table class="table table-bordered" style="height: 30%">
                             <tbody>
                             <tr>
-                                <th style="width: 30%;">Tên khách hàng (Gửi)</th>
-                                <td>{{ $marketOrder->from_name_customer }}</td>
-                                <th style="width: 30%;">Tên khách hàng (Nhận)</th>
-                                <td>{{ $marketOrder->to_name_customer }}</td>
+                                <th style="width: 30%;">Tên khách hàng</th>
+                                <td>{{ $order->name_customer }}</td>
                             </tr>
                             <tr>
-                                <th>Số điện thoại (Gửi)</th>
-                                <td>{{ $marketOrder->from_phone_customer }}</td>
-                                <th>Số điện thoại (Nhận)</th>
-                                <td>{{ $marketOrder->to_phone_customer }}</td>
+                                <th>Số điện thoại</th>
+                                <td>{{ $order->phone_customer }}</td>
                             </tr>
                             <tr>
-                                <th>Loại nhà (Gửi)</th>
+                                <th>Loại nhà</th>
                                 <td>
-                                    @if($marketOrder->from_home_type === 'apartment')
+                                    @if($order->home_type === 'apartment')
                                         Căn hộ
-                                    @elseif($marketOrder->from_home_type === 'villa')
-                                        Biệt thự
-                                    @else
-                                        Nhà phố
-                                    @endif
-                                </td>
-                                <th>Loại nhà (Nhận)</th>
-                                <td>
-                                    @if($marketOrder->to_home_type === 'apartment')
-                                        Căn hộ
-                                    @elseif($marketOrder->to_home_type === 'villa')
+                                    @elseif($order->home_type === 'villa')
                                         Biệt thự
                                     @else
                                         Nhà phố
@@ -95,10 +81,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Địa chỉ (Gửi)</th>
-                                <td>{{ $marketOrder->from_address }}</td>
-                                <th>Địa chỉ (Nhận)</th>
-                                <td>{{ $marketOrder->to_address }}</td>
+                                <th>Địa chỉ</th>
+                                <td>{{ $order->address }}</td>
                             </tr>
 
                             </tbody>

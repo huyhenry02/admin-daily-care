@@ -11,14 +11,6 @@ class MarketOrder extends Model
     protected $table = 'market_order';
     protected $fillable = [
         'order_id',
-        'from_name_customer',
-        'from_phone_customer',
-        'from_home_type',
-        'from_address',
-        'to_name_customer',
-        'to_phone_customer',
-        'to_home_type',
-        'to_address',
         'deposit_price',
         'service_price',
         'expect_price',

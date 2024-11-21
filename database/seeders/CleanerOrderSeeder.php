@@ -21,10 +21,6 @@ class CleanerOrderSeeder extends Seeder
             CleaningOrder::create([
                 'id' => $item->id,
                 'order_id' => $item->order_id,
-                'name_customer' => $item->name_customer,
-                'phone_customer' => $item->phone_customer,
-                'home_type' => $item->home_type,
-                'address' => $item->address,
                 'total_price' => $item->total_price,
                 'deposit' => $item->deposit,
                 'status' => $item->status,

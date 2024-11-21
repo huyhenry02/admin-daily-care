@@ -62,18 +62,18 @@
                             <tbody>
                             <tr>
                                 <th style="width: 30%;">Tên khách hàng</th>
-                                <td>{{ $cleaningOrder->name_customer }}</td>
+                                <td>{{ $order->name_customer }}</td>
                             </tr>
                             <tr>
                                 <th>Số điện thoại</th>
-                                <td>{{ $cleaningOrder->phone_customer }}</td>
+                                <td>{{ $order->phone_customer }}</td>
                             </tr>
                             <tr>
                                 <th>Loại nhà</th>
                                 <td>
-                                    @if($cleaningOrder->home_type === 'apartment')
+                                    @if($order->home_type === 'apartment')
                                         Căn hộ
-                                    @elseif($cleaningOrder->home_type === 'villa')
+                                    @elseif($order->home_type === 'villa')
                                         Biệt thự
                                     @else
                                         Nhà phố
@@ -82,7 +82,7 @@
                             </tr>
                             <tr>
                                 <th>Địa chỉ</th>
-                                <td>{{ $cleaningOrder->address }}</td>
+                                <td>{{ $order->address }}</td>
                             </tr>
                             <tr>
                                 <th>Tổng giá</th>

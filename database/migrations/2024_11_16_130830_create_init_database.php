@@ -46,6 +46,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->constrained('users');
             $table->foreignId('cleaner_id')->nullable()->constrained('cleaners');
+            $table->string('name_customer', 255);
+            $table->string('phone_customer', 255);
+            $table->enum('home_type', ['apartment', 'villa', 'townhouse']);
+            $table->string('address', 255);
             $table->enum('service_type', ['market', 'clean']);
             $table->enum('status', ['pending', 'going', 'processing', 'completed', 'complaining']);
             $table->enum('pay_status', ['pending', 'deposited', 'paid', 'return_amount']);
@@ -71,10 +75,6 @@ return new class extends Migration
         Schema::create('cleaning_order', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained('orders');
-            $table->string('name_customer', 255);
-            $table->string('phone_customer', 255);
-            $table->enum('home_type', ['apartment', 'villa', 'townhouse']);
-            $table->string('address', 255);
             $table->integer('total_price');
             $table->integer('deposit')->nullable();
             $table->enum('status', ['pending', 'processing', 'completed', 'rejected']);
@@ -92,14 +92,6 @@ return new class extends Migration
         Schema::create('market_order', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained('orders');
-            $table->string('from_name_customer', 255);
-            $table->string('from_phone_customer', 255);
-            $table->enum('from_home_type', ['apartment', 'villa', 'townhouse']);
-            $table->string('from_address', 255);
-            $table->string('to_name_customer', 255);
-            $table->string('to_phone_customer', 255);
-            $table->enum('to_home_type', ['apartment', 'villa', 'townhouse']);
-            $table->string('to_address', 255);
             $table->integer('deposit_price');
             $table->integer('service_price');
             $table->integer('expect_price')->nullable();

@@ -2,10 +2,6 @@
     {
         "id": 1,
         "order_id": 2,
-        "name_customer": "Customer A",
-        "phone_customer": "0912345678",
-        "home_type": "apartment",
-        "address": "456 Đường Nguyễn Huệ, Quận 3, TP.HCM",
         "total_price": 500000,
         "deposit": 100000,
         "status": "processing",

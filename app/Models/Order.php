@@ -24,6 +24,10 @@ class Order extends Model
     public const SERVICE_TYPE_CLEAN = 'clean';
 
     protected $fillable = [
+        'name_customer',
+        'phone_customer',
+        'home_type',
+        'address',
         'customer_id',
         'cleaner_id',
         'service_type',

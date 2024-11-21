@@ -20,6 +20,10 @@ class OrderSeeder extends Seeder
             Order::create([
                 'id' => $item->id,
                 'customer_id' => $item->customer_id,
+                'name_customer' => $item->name_customer,
+                'phone_customer' => $item->phone_customer,
+                'home_type' => $item->home_type,
+                'address' => $item->address,
                 'cleaner_id' => $item->cleaner_id,
                 'service_type' => $item->service_type,
                 'status' => $item->status,
