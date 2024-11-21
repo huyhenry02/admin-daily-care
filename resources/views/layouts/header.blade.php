@@ -4,7 +4,7 @@
         <div class="logo-header" data-background-color="blue2">
             <a href="#" class="logo">
                 <img
-                    src="/assets/img/kaiadmin/logo_light.svg"
+                    src="/assets/img/kaiadmin/logo (537 x 80 px) (537 x 80 px).png"
                     alt="navbar brand"
                     class="navbar-brand"
                     height="20"
