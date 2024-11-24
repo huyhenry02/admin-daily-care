@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Complaint;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 
@@ -67,9 +71,64 @@ class OrderController extends Controller
 
     public function showDetailComplaint(Complaint $complaint): View|Factory|Application
     {
+        $complaintBy = $complaint->complaintBy;
         return view('order.complaint_detail'
             , [
-                'complaint' => $complaint
+                'complaint' => $complaint,
+                'complaintBy' => $complaintBy
             ]);
     }
+
+    public function confirmComplaint(Complaint $complaint, Request $request): RedirectResponse
+    {
+        DB::beginTransaction();
+        try {
+            $user = $complaint->complaintBy;
+            $input = $request->all();
+            switch ($user->role_type) {
+                case User::ROLE_CUSTOMER:
+                    $input['status'] = Complaint::STATUS_APPROVED;
+                    $complaint->fill($input);
+                    $complaint->save();
+
+                    $point = $input['point'];
+                    $cleaner = $complaint->order->cleaner;
+                    $cleaner->point -= $point;
+                    $cleaner->save();
+                    break;
+                case User::ROLE_CLEANER:
+                    $input['status'] = Complaint::STATUS_APPROVED;
+                    $complaint->fill($input);
+                    $complaint->save();
+
+                    $point = $input['point'];
+                    $cleaner = $complaint->order->cleaner;
+                    $cleaner->point += $point;
+                    $cleaner->save();
+                    break;
+            }
+            DB::commit();
+            return redirect()->back()->with('success', 'Complaint has been confirmed');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function rejectComplaint(Complaint $complaint, Request $request): RedirectResponse
+    {
+        DB::beginTransaction();
+        try {
+            $input = $request->all();
+            $input['status'] = Complaint::STATUS_REJECTED;
+            $complaint->fill($input);
+            $complaint->save();
+            DB::commit();
+            return redirect()->back()->with('success', 'Complaint has been rejected');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
 }

@@ -40,10 +40,7 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
                                         <li>
-                                            <a class="dropdown-item" href="{{ route('customer.showDetail', $customer->id) }}">Xem chi
-                                                tiết</a>
-                                            <a class="dropdown-item" href="{{ route('customer.showUpdate') }}">Sửa thông tin</a>
-                                            <a class="dropdown-item" href="#">Xóa tài khoản</a>
+                                            <a class="dropdown-item" href="{{ route('customer.showDetail', $customer->id) }}">Xem chi tiết</a>
                                         </li>
                                     </ul>
                                 </div>

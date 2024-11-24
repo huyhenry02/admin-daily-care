@@ -10,7 +10,6 @@ use App\Models\User;
             <h3 class="fw-bold mb-3">Danh sách tài khoản</h3>
         </div>
         <div class="ms-md-auto py-2 py-md-0">
-            <a href="#" class="btn btn-primary btn-round">Thêm mới tài khoản</a>
         </div>
     </div>
     <div class="row">
@@ -56,8 +55,6 @@ use App\Models\User;
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a class="dropdown-item" href="#">Xem chi tiết</a>
-                                                <a class="dropdown-item" href="#">Sửa thông tin</a>
                                                 <a class="dropdown-item" href="#">Xóa tài khoản</a>
                                             </li>
                                         </ul>

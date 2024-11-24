@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Controllers\OrderController;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Complaint extends Model
@@ -23,7 +24,7 @@ class Complaint extends Model
 
     public function order(): BelongsTo
     {
-        return $this->belongsTo(CleaningOrder::class);
+        return $this->belongsTo(Order::class, 'order_id');
     }
 
     public function complaintBy(): BelongsTo

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -24,9 +26,12 @@ class CustomerController extends Controller
         return view('customer.create');
     }
 
-    public function showUpdate(): View|Factory|Application
+    public function showUpdate(User $customer): View|Factory|Application
     {
-        return view('customer.update');
+        return view('customer.update',
+            [
+                'customer' => $customer
+            ]);
     }
 
     public function showDetail(User $customer): View|Factory|Application

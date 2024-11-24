@@ -1,3 +1,4 @@
+@php use App\Models\User; @endphp
 <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -5,12 +6,31 @@
                 <h5 class="modal-title" id="confirmModalLabel">Xác nhận Khiếu Nại</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('order.confirmComplaint', $complaint->id) }}" method="POST">
+                @csrf
                 <div class="modal-body">
                     <p>Bạn có chắc chắn muốn xác nhận khiếu nại này?</p>
                     <div class="mb-3">
                         <label for="adminDecision" class="form-label">Quyết Định của Admin:</label>
-                        <textarea name="admin_decision" id="adminDecision" class="form-control" rows="4" placeholder="Nhập quyết định của bạn..."></textarea>
+                        <textarea name="admin_decision" id="adminDecision" class="form-control" rows="4"
+                                  placeholder="Nhập quyết định của bạn..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-inline">
+                            @if( $complaintBy->role_type === User::ROLE_CLEANER)
+                                <label for="timeType" class="mr-2">Điểm hoàn về cho nhân viên:</label>
+                            @else
+                                <label for="timeType" class="mr-2">Điểm bị trừ của nhân viên:</label>
+                            @endif
+                            <select id="timeType" class="form-control mt-2" name="point">
+                                <option value="1">Lý do 1</option>
+                                <option value="2">Lý do 2</option>
+                                <option value="3">Lý do 3</option>
+                                <option value="4">Lý do 4</option>
+                                <option value="5">Lý do 5</option>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">

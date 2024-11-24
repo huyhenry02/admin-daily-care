@@ -107,12 +107,6 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                                 <span class="sub-item">Danh sách tài khoản</span>
                             </a>
                         </li>
-                        <li class="{{ request()->routeIs('account.showCreate') ? 'active' : '' }}">
-                            <a href="{{ route('account.showCreate') }}">
-                                <span class="sub-item">Thêm mới tài khoản</span>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
             </li>

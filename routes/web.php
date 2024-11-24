@@ -70,8 +70,10 @@ Route::group([
     ], function () {
         Route::get('/', [CustomerController::class, 'showIndex'])->name('customer.showIndex');
         Route::get('/create', [CustomerController::class, 'showCreate'])->name('customer.showCreate');
-        Route::get('/update', [CustomerController::class, 'showUpdate'])->name('customer.showUpdate');
+        Route::get('/update/{customer}', [CustomerController::class, 'showUpdate'])->name('customer.showUpdate');
         Route::get('/detail/{customer}', [CustomerController::class, 'showDetail'])->name('customer.showDetail');
+
+        Route::post('/update', [CustomerController::class, 'updateCustomer'])->name('customer.updateCustomer');
     });
 
     Route::group([
@@ -84,6 +86,9 @@ Route::group([
         Route::get('/create', [OrderController::class, 'showCreate'])->name('order.showCreate');
         Route::get('/update', [OrderController::class, 'showUpdate'])->name('order.showUpdate');
         Route::get('/detail/{order}', [OrderController::class, 'showDetail'])->name('order.showDetail');
+
+        Route::post('/confirm-complaint/{complaint}', [OrderController::class, 'confirmComplaint'])->name('order.confirmComplaint');
+        Route::post('/reject-complaint/{complaint}', [OrderController::class, 'rejectComplaint'])->name('order.rejectComplaint');
     });
     Route::group([
         'prefix' => 'service'

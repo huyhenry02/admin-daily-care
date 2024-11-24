@@ -33,7 +33,7 @@
                             <strong>Mã Đơn Hàng:</strong>
                         </div>
                         <div class="col-md-8">
-                            <span>ĐH-000{{ $complaint->order_id }}</span>
+                            <a href="{{ route('order.showDetail', $complaint->order_id) }}">ĐH-000{{ $complaint->order_id }}</a>
                         </div>
                     </div>
                     <div class="row mb-3">

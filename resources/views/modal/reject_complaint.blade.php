@@ -5,7 +5,8 @@
                 <h5 class="modal-title" id="rejectModalLabel">Từ chối Khiếu Nại</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('order.rejectComplaint', $complaint->id) }}" method="POST">
+                @csrf
                 <div class="modal-body">
                     <p>Bạn có chắc chắn muốn từ chối khiếu nại này?</p>
                     <div class="mb-3">
