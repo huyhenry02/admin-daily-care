@@ -24,7 +24,7 @@
                     <tbody>
                     @foreach( $customers as $key => $customer )
                         <tr>
-                            <td>KH-000{{ $key+1 }}</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $customer->name ?? '' }}</td>
                             <td>{{ $customer->email ?? '' }}</td>
                             <td>{{ $customer->address ?? '' }}</td>

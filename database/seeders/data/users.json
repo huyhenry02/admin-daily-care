@@ -1,7 +1,7 @@
 [
     {
         "id" : 1,
-        "name": "Super admin",
+        "name": "Admin",
         "user_name": "super_admin",
         "email": "admin@gmail.com",
         "password": "1",

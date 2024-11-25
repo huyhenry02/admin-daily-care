@@ -47,7 +47,7 @@
     <div class="sidebar" data-background-color="blue">
         <div class="sidebar-logo">
             <!-- Logo Header -->
-            <div class="logo-header" data-background-color="blue">
+            <div class="logo-header">
                 <a href="#" class="logo">
                     <img
                         src="/assets/img/kaiadmin/logo-v2.png"

@@ -31,7 +31,7 @@
                     @foreach( $orders as $key => $order)
                         <tr>
                             <td>{{ $key+1 }}</td>
-                            <td>DH-000{{ $key+1 }}</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $order->customer?->name ?? '' }}</td>
                             <td>
                                 @switch( $order->service_type)
@@ -94,7 +94,6 @@
                                         <li>
                                             <a class="dropdown-item" href="{{ route('order.showDetail', $order->id) }}">Xem chi tiết</a>
                                             <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                            <a class="dropdown-item" href="#">Xóa đơn hàng</a>
                                         </li>
                                     </ul>
                                 </div>

@@ -29,7 +29,7 @@
                     <tbody>
                     @foreach( $contracts as $key => $contract )
                         <tr>
-                            <td>HD-000{{ $key+1 }}</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $contract->name ?? '' }}</td>
                             <td>{{ $contract->cleaner?->user?->name ?? '' }}</td>
                             <td>{{ $contract->start_date  ?? '' }}</td>

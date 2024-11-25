@@ -9,7 +9,7 @@
     <div class="col-12">
         <div class="card border-0 shadow-sm mb-4">
             <div class="card-header">
-                <h5 class="card-title">Mã Đơn Hàng: ĐH-000{{ $order->id }}</h5>
+                <h5 class="card-title">Mã Đơn Hàng: {{ $order->id }}</h5>
             </div>
             <div class="card-body">
                 <div class="row">

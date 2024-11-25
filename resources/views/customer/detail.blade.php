@@ -104,7 +104,7 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">STT</th>
-                                <th scope="col">Mã ĐH</th>a
+                                <th scope="col">Mã ĐH</th>
                                 <th scope="col">Loại dịch vụ</th>
                                 <th scope="col">Trạng thái đơn hàng</th>
                                 <th scope="col">Trạng thái thanh toán</th>
@@ -116,7 +116,7 @@
                             @foreach( $customer->orders as $key => $order )
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td>DH-000{{ $key+1 }}</td>
+                                    <td>{{ $key+1 }}</td>
                                     <td>
                                         @switch( $order->service_type)
                                             @case( Order::SERVICE_TYPE_MARKET )
@@ -178,7 +178,6 @@
                                                 <li>
                                                     <a class="dropdown-item" href="#">Sửa thông tin</a>
                                                     <a class="dropdown-item" href="{{ route('order.showDetail', $order->id) }}">Xem thông tin</a>
-                                                    <a class="dropdown-item" href="#">Xóa đơn hàng</a>
                                                 </li>
                                             </ul>
                                         </div>

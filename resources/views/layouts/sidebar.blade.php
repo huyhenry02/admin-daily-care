@@ -46,7 +46,7 @@ $routesService = [
 ];
 
 $routesReport = [
-    'report.showReportCustomer',
+    'report.showReportComplaint',
     'report.showReportOrder',
     'report.showReportRevenue',
 ];
@@ -81,9 +81,9 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                                 <span class="sub-item">Báo cáo Doanh số</span>
                             </a>
                         </li>
-                        <li class="{{ request()->routeIs('report.showReportCustomer') ? 'active' : '' }}">
-                            <a href="{{ route('report.showReportCustomer') }}">
-                                <span class="sub-item">Báo cáo Khách hàng</span>
+                        <li class="{{ request()->routeIs('report.showReportComplaint') ? 'active' : '' }}">
+                            <a href="{{ route('report.showReportComplaint') }}">
+                                <span class="sub-item">Báo cáo Khiếu nại</span>
                             </a>
                         </li>
                         <li class="{{ request()->routeIs('report.showReportOrder') ? 'active' : '' }}">

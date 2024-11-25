@@ -1,7 +1,7 @@
 <div class="main-header">
     <div class="main-header-logo">
         <!-- Logo Header -->
-        <div class="logo-header" data-background-color="blue2">
+        <div class="logo-header">
             <a href="#" class="logo">
                 <img
                     src="/assets/img/kaiadmin/logo (537 x 80 px) (537 x 80 px).png"

@@ -107,6 +107,6 @@ Route::group([
         Route::get('/customer', [ReportController::class, 'showReportCustomer'])->name('report.showReportCustomer');
         Route::get('/order', [ReportController::class, 'showReportOrder'])->name('report.showReportOrder');
         Route::get('/revenue', [ReportController::class, 'showReportRevenue'])->name('report.showReportRevenue');
+        Route::get('/complaint', [ReportController::class, 'showReportComplaint'])->name('report.showReportComplaint');
     });
-
 });

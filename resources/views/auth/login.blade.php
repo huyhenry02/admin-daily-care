@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Admin Daily Care</title>
+    <title>Admin Daily Care - Đăng nhập</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -55,12 +55,25 @@
             background-color: #e9ecef;
         }
 
-        .input-group-text:hover {
-            background-color: #dee2e6;
+        .logo {
+            max-width: 306px;
+            margin-left: 108px;
+            margin-bottom: 1rem;
         }
 
-        .tio-visible-outlined {
+        .login-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .login-header p {
             font-size: 1rem;
+            color: #6c757d;
         }
     </style>
 </head>
@@ -74,12 +87,20 @@
                 <!-- Card -->
                 <div class="card card-lg mb-5">
                     <div class="card-body">
+                        <!-- Login Header -->
+                        <div class="login-header">
+                            <img src="/assets/img/kaiadmin/logo-v2.png" alt="Logo" class="logo">
+                            <h1>Chào mừng đến với Admin Daily Care</h1>
+                            <p>Vui lòng đăng nhập để tiếp tục quản lý hệ thống.</p>
+                        </div>
+                        <!-- End Login Header -->
+
                         <!-- Form -->
                         <form class="js-validate" action="{{ route('auth.post_login') }}" method="post">
                             @csrf
                             <div class="js-form-message form-group">
                                 <label class="input-label" for="signinSrEmail">Email</label>
-                                <input type="text" class="form-control form-control-lg" name="email" id="signinSrEmail" tabindex="1">
+                                <input type="text" class="form-control form-control-lg" name="email" id="signinSrEmail" tabindex="1" placeholder="Nhập địa chỉ email">
                             </div>
                             <!-- End Form Group -->
 
@@ -92,7 +113,7 @@
                                 </label>
 
                                 <div class="input-group input-group-merge">
-                                    <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" >
+                                    <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupSrPassword" placeholder="Nhập mật khẩu">
                                     <div id="changePassTarget" class="input-group-append">
                                     </div>
                                 </div>

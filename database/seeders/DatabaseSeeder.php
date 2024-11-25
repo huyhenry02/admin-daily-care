@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CleanerSeeder::class,
             ServiceCleaningHourSeeder::class,
-            OrderSeeder::class,
-            MarketOrderSeeder::class,
-            MarketOrderDetailSeeder::class,
-            CleanerOrderSeeder::class,
-            ComplaintSeeder::class,
+//            OrderSeeder::class,
+//            MarketOrderSeeder::class,
+//            MarketOrderDetailSeeder::class,
+//            CleanerOrderSeeder::class,
+//            ComplaintSeeder::class,
         ]);
     }
 }

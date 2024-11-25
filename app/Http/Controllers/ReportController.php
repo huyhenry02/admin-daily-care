@@ -21,4 +21,9 @@ class ReportController extends Controller
     {
         return view('report.order');
     }
+
+    public function showReportComplaint(): View|Factory|Application
+    {
+        return view('report.complaint');
+    }
 }

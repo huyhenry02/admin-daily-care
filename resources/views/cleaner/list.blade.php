@@ -29,7 +29,7 @@
                     <tbody>
                     @foreach( $cleaners as $key => $cleaner )
                         <tr>
-                            <td>NV-000{{ $key+1 }}</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $cleaner->user->name ?? '' }}</td>
                             <td>{{ $cleaner->point ?? 0 }}</td>
                             <td>{{ $cleaner->rating ?? 0 }}</td>

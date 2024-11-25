@@ -1,34 +1,26 @@
 [
     {
         "id": 1,
-        "name": "Dọn dẹp cơ bản 2 giờ",
+        "name": "Dọn dẹp tối đa 60m2 hoặc 2 phòng",
         "hour": 2,
-        "price": 200000,
+        "price": 159000,
         "created_at": "2024-11-19T08:00:00",
         "updated_at": "2024-11-19T08:00:00"
     },
     {
         "id": 2,
-        "name": "Dọn dẹp cơ bản 4 giờ",
-        "hour": 4,
-        "price": 400000,
+        "name": "Dọn dẹp tối đa 90m2 hoặc 3 phòng",
+        "hour": 3,
+        "price": 216000,
         "created_at": "2024-11-19T08:15:00",
         "updated_at": "2024-11-19T08:15:00"
     },
     {
         "id": 3,
-        "name": "Dọn dẹp toàn diện 6 giờ",
-        "hour": 6,
-        "price": 600000,
+        "name": "Dọn dẹp tối đa 115m2 hoặc 4 phòng",
+        "hour": 4,
+        "price": 275000,
         "created_at": "2024-11-19T08:30:00",
         "updated_at": "2024-11-19T08:30:00"
-    },
-    {
-        "id": 4,
-        "name": "Dọn dẹp sâu 8 giờ",
-        "hour": 8,
-        "price": 800000,
-        "created_at": "2024-11-19T08:45:00",
-        "updated_at": "2024-11-19T08:45:00"
     }
 ]
