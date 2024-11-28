@@ -61,6 +61,25 @@
                                                 style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->identification ?? '' }}</span>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th scope="row">
+                                            <span class="fw-bold"
+                                                  style="font-size: 1.25rem; color: #333;">Khả năng nghiệp vụ:  </span>
+                                    </th>
+                                    <td colspan="2">
+                                            <span
+                                                style="font-size: 1rem; color: #666; margin-left: 10px">
+                                                @if( $cleaner->can_cleaning === 1 )
+                                                    - Dọn dẹp <br>
+                                                @endif
+                                                @if( $cleaner->can_market === 1 )
+                                                       <span style="padding-left: 10px">
+                                                            - Đi chợ
+                                                       </span> <br>
+                                                @endif
+                                            </span>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -101,22 +120,22 @@
                                             style="font-size: 1rem; color: #666; margin-left: 10px">{{ $cleaner->user->address ?? '' }}</span>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th scope="row">
+                                            <span class="fw-bold"
+                                                  style="font-size: 1.25rem; color: #333;">Số dư tài khoản: </span>
+                                    </th>
+                                    <td colspan="2">
+                                        <span
+                                            style="font-size: 1rem; color: #666; margin-left: 10px">{{ number_format($cleaner->account_balance ?? 0) }} VNĐ</span>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-2"></div>
                     </div>
-                    <div class="mb-4">
-                        <span class="fw-bold" style="font-size: 1.25rem; color: #333;">Khả năng nghiệp vụ: </span>
-                        <p>
-                            @if( $cleaner->can_cleaning === 1 )
-                                - Dọn dẹp <br>
-                            @endif
-                            @if( $cleaner->can_market === 1 )
-                                - Đi chợ <br>
-                            @endif
-                        </p>
-                    </div>
+
                     <div class="mb-4">
                         <span class="fw-bold" style="font-size: 1.25rem; color: #333;">Mô tả CV: </span>
                         <p>

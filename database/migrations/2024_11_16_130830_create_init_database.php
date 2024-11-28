@@ -15,9 +15,9 @@ return new class extends Migration
         Schema::create('cleaners', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->float('rating')->default(0);
-            $table->integer('point')->default(0);
-            $table->integer('account_balance')->default(0);
+            $table->float('rating')->default(5);
+            $table->integer('point')->default(10);
+            $table->integer('account_balance')->default(1000000);
             $table->text('cv')->nullable();
             $table->string('cv_file', 255)->nullable();
             $table->string('temporary_residence_address', 255);

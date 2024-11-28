@@ -31,7 +31,7 @@
                     @foreach( $orders as $key => $order)
                         <tr>
                             <td>{{ $key+1 }}</td>
-                            <td>{{ $key+1 }}</td>
+                            <td>{{ $order->id }}</td>
                             <td>{{ $order->customer?->name ?? '' }}</td>
                             <td>
                                 @switch( $order->service_type)
@@ -81,22 +81,11 @@
                             <td class="text-center">
                                 {{ $order->created_at ? $order->created_at->format('H:m d-m-Y') : '' }}
                             </td>
-                            <td>
-                                <div class="btn-group dropdown">
-                                    <button
-                                        class="btn btn-primary dropdown-toggle"
-                                        type="button"
-                                        data-bs-toggle="dropdown"
-                                    >
-                                        Chọn hành động
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('order.showDetail', $order->id) }}">Xem chi tiết</a>
-                                            <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <td class="text-center">
+                                <a href="{{ route('order.showDetail', $order->id) }}"
+                                   class="btn btn-primary">
+                                    <i class="fas fa-eye"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

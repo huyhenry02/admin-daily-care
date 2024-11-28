@@ -18,17 +18,13 @@
                     <div class="mb-3">
                         <div class="form-inline">
                             @if( $complaintBy->role_type === User::ROLE_CLEANER)
-                                <label for="timeType" class="mr-2">Điểm hoàn về cho nhân viên:</label>
+                                <label for="timeType" class="mr-2">Số tiền hoàn về cho nhân viên (VND):</label>
+                                <input type="number" name="amount" id="amount" class="form-control" value="0">
                             @else
                                 <label for="timeType" class="mr-2">Điểm bị trừ của nhân viên:</label>
+                                <input type="number" name="point" id="point" class="form-control" value="0">
                             @endif
-                            <select id="timeType" class="form-control mt-2" name="point">
-                                <option value="1">Lý do 1</option>
-                                <option value="2">Lý do 2</option>
-                                <option value="3">Lý do 3</option>
-                                <option value="4">Lý do 4</option>
-                                <option value="5">Lý do 5</option>
-                            </select>
+
                         </div>
 
                     </div>

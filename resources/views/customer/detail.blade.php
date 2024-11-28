@@ -116,7 +116,7 @@
                             @foreach( $customer->orders as $key => $order )
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ $order->id }}</td>
                                     <td>
                                         @switch( $order->service_type)
                                             @case( Order::SERVICE_TYPE_MARKET )

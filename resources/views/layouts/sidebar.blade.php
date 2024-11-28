@@ -78,17 +78,17 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                     <ul class="nav nav-collapse">
                         <li class="{{ request()->routeIs('report.showReportRevenue') ? 'active' : '' }}">
                             <a href="{{ route('report.showReportRevenue') }}">
-                                <span class="sub-item">Báo cáo Doanh số</span>
+                                <span class="sub-item">Báo cáo doanh số</span>
                             </a>
                         </li>
                         <li class="{{ request()->routeIs('report.showReportComplaint') ? 'active' : '' }}">
                             <a href="{{ route('report.showReportComplaint') }}">
-                                <span class="sub-item">Báo cáo Khiếu nại</span>
+                                <span class="sub-item">Báo cáo khiếu nại</span>
                             </a>
                         </li>
                         <li class="{{ request()->routeIs('report.showReportOrder') ? 'active' : '' }}">
                             <a href="{{ route('report.showReportOrder') }}">
-                                <span class="sub-item">Báo cáo Đơn hàng</span>
+                                <span class="sub-item">Báo cáo đơn hàng</span>
                             </a>
                         </li>
                     </ul>
@@ -113,14 +113,14 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
             <li class="nav-item {{ $isActiveCleaner ? 'active' : '' }}">
                 <a data-bs-toggle="collapse" href=" #base">
                     <i class="fas fa-layer-group"></i>
-                    <p>Quản lý Nhân viên</p>
+                    <p>Quản lý nhân viên</p>
                     <span class="caret"></span>
                 </a>
                 <div class="collapse {{ $isActiveCleaner ? 'show' : '' }}" id="base">
                     <ul class="nav nav-collapse show">
                         <li class="{{ request()->routeIs('cleaner.showIndex') ? 'active' : '' }}">
                             <a href="{{ route('cleaner.showIndex') }}">
-                                <span class="sub-item">Danh sách Nhân viên</span>
+                                <span class="sub-item">Danh sách nhân viên</span>
                             </a>
                         </li>
                         <li class="{{ request()->routeIs('cleaner.showIndexContract') ? 'active' : '' }}">
@@ -130,7 +130,7 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                         </li>
                         <li class="{{ request()->routeIs('cleaner.showCreate') ? 'active' : '' }}">
                             <a href="{{ route('cleaner.showCreate') }}">
-                                <span class="sub-item">Thêm mới Nhân viên</span>
+                                <span class="sub-item">Thêm mới nhân viên</span>
                             </a>
                         </li>
                     </ul>
@@ -139,14 +139,14 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
             <li class="nav-item {{ $isActiveCustomer ? 'active' : '' }}">
                 <a data-bs-toggle="collapse" href=" #customer">
                     <i class="fas fa-layer-group"></i>
-                    <p>Quản lý Khách hàng</p>
+                    <p>Quản lý khách hàng</p>
                     <span class="caret"></span>
                 </a>
                 <div class="collapse {{ $isActiveCustomer ? 'show' : '' }}" id="customer">
                     <ul class="nav nav-collapse show">
                         <li class="{{ request()->routeIs('customer.showIndex') ? 'active' : '' }}">
                             <a href="{{ route('customer.showIndex') }}">
-                                <span class="sub-item">Danh sách Khách hàng</span>
+                                <span class="sub-item">Danh sách khách hàng</span>
                             </a>
                         </li>
                     </ul>

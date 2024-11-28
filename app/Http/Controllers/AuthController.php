@@ -21,7 +21,7 @@ class AuthController extends Controller
         try {
             $credentials = $request->only('email', 'password');
             if (auth()->attempt($credentials)) {
-                return redirect()->route('account.showIndex');
+                return redirect()->route('report.showReportRevenue');
             }
             return redirect()->back();
         }catch (Exception $e) {

@@ -19,18 +19,22 @@
                     <tr>
                         <th scope="col" width="10%">Mã NV</th>
                         <th scope="col">Họ và Tên</th>
+                        <th scope="col">Số dư tài khoản</th>
                         <th scope="col" width="10%">Điểm Phạt</th>
                         <th scope="col" width="10%">Sao</th>
                         <th scope="col" width="15%">Trạng thái</th>
                         <th scope="col" width="15%">Khả năng làm việc</th>
-                        <th class="text-center" scope="col" width="10%"></th>
+                        <th class="text-center" scope="col" width="15%"></th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach( $cleaners as $key => $cleaner )
                         <tr>
-                            <td>{{ $key+1 }}</td>
+                            <td>{{ $cleaner->user_id ?? '' }}</td>
                             <td>{{ $cleaner->user->name ?? '' }}</td>
+                            <td>
+                                {{ number_format($cleaner->account_balance ?? 0) }} VNĐ
+                            </td>
                             <td>{{ $cleaner->point ?? 0 }}</td>
                             <td>{{ $cleaner->rating ?? 0 }}</td>
                             <td>
@@ -49,23 +53,21 @@
                                 @endif
                             </td>
                             <td class="text-center">
-                                <div class="btn-group dropdown">
-                                    <button
-                                        class="btn btn-primary dropdown-toggle"
-                                        type="button"
-                                        data-bs-toggle="dropdown"
-                                    >
-                                        Chọn hành động
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('cleaner.showDetail', $cleaner->id) }}">Xem chi
-                                                tiết</a>
-                                            <a class="dropdown-item" href="{{ route('cleaner.showUpdate', $cleaner->id) }}">Sửa thông tin</a>
-                                            <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <a href="{{ route('cleaner.showUpdate', $cleaner->id) }}"
+                                   class="btn btn-sm btn-warning"
+                                   title="Sửa">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="{{ route('cleaner.showDetail', $cleaner->id) }}"
+                                   class="btn btn-sm btn-primary"
+                                   title="Xem">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#"
+                                   class="btn btn-sm btn-danger"
+                                   title="Xóa">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

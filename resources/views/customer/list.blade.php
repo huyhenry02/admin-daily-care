@@ -24,26 +24,17 @@
                     <tbody>
                     @foreach( $customers as $key => $customer )
                         <tr>
-                            <td>{{ $key+1 }}</td>
+                            <td>{{ $customer->id }}</td>
                             <td>{{ $customer->name ?? '' }}</td>
                             <td>{{ $customer->email ?? '' }}</td>
                             <td>{{ $customer->address ?? '' }}</td>
                             <td>{{ $customer->orders()->count() ?? 0 }}</td>
                             <td class="text-center">
-                                <div class="btn-group dropdown">
-                                    <button
-                                        class="btn btn-primary dropdown-toggle"
-                                        type="button"
-                                        data-bs-toggle="dropdown"
-                                    >
-                                        Chọn hành động
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('customer.showDetail', $customer->id) }}">Xem chi tiết</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <a href="{{ route('customer.showDetail', $customer->id) }}"
+                                   class="btn btn-sm btn-primary"
+                                   title="Xem">
+                                    <i class="fa fa-eye"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

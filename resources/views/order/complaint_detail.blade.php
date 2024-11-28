@@ -25,7 +25,7 @@
                             <strong>Mã Khiếu Nại:</strong>
                         </div>
                         <div class="col-md-8">
-                            <span>KN-000{{ $complaint->id }}</span>
+                            <span>{{ $complaint->id }}</span>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -33,7 +33,7 @@
                             <strong>Mã Đơn Hàng:</strong>
                         </div>
                         <div class="col-md-8">
-                            <a href="{{ route('order.showDetail', $complaint->order_id) }}">ĐH-000{{ $complaint->order_id }}</a>
+                            <a href="{{ route('order.showDetail', $complaint->order_id) }}">{{ $complaint->order_id }}</a>
                         </div>
                     </div>
                     <div class="row mb-3">

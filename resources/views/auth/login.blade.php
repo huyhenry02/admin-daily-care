@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Admin Daily Care - Đăng nhập</title>
+    <title>Admin DailyTask</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -90,7 +90,7 @@
                         <!-- Login Header -->
                         <div class="login-header">
                             <img src="/assets/img/kaiadmin/logo-v2.png" alt="Logo" class="logo">
-                            <h1>Chào mừng đến với Admin Daily Care</h1>
+                            <h1>Chào mừng đến với <br> Admin DailyTask</h1>
                             <p>Vui lòng đăng nhập để tiếp tục quản lý hệ thống.</p>
                         </div>
                         <!-- End Login Header -->

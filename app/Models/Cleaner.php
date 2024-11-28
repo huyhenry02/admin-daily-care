@@ -18,6 +18,7 @@ class Cleaner extends Model
         'rating',
         'point',
         'cv',
+        'account_balance',
         'cv_file',
         'temporary_residence_address',
         'status',

@@ -1,4 +1,5 @@
 @extends('layouts.main')
+
 @section('content')
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         <div>
@@ -9,11 +10,11 @@
     <div class="row mb-4">
         <div class="col-md-3">
             <label for="startDate">Từ ngày:</label>
-            <input type="date" id="startDate" class="form-control">
+            <input type="date" id="startDate" class="form-control" value="{{ request()->input('startDate') }}">
         </div>
         <div class="col-md-3">
             <label for="endDate">Đến ngày:</label>
-            <input type="date" id="endDate" class="form-control">
+            <input type="date" id="endDate" class="form-control" value="{{ request()->input('endDate') }}">
         </div>
         <div class="col-md-3 align-self-end">
             <button id="filterBtn" class="btn btn-primary w-100">Lọc</button>
@@ -25,7 +26,7 @@
             <div class="card card-stats">
                 <div class="card-body">
                     <h5 class="text-center">Tổng số khiếu nại</h5>
-                    <h3 class="text-center" id="totalComplaints">0</h3>
+                    <h3 class="text-center" id="totalComplaints">{{ $totalComplaints }}</h3>
                 </div>
             </div>
         </div>
@@ -33,7 +34,7 @@
             <div class="card card-stats">
                 <div class="card-body">
                     <h5 class="text-center">Chờ xử lý</h5>
-                    <h3 class="text-center" id="pendingComplaints">0</h3>
+                    <h3 class="text-center" id="pendingComplaints">{{ $pendingComplaints }}</h3>
                 </div>
             </div>
         </div>
@@ -41,7 +42,7 @@
             <div class="card card-stats">
                 <div class="card-body">
                     <h5 class="text-center">Đã xử lý</h5>
-                    <h3 class="text-center" id="resolvedComplaints">0</h3>
+                    <h3 class="text-center" id="resolvedComplaints">{{ $resolvedComplaints }}</h3>
                 </div>
             </div>
         </div>
@@ -68,7 +69,14 @@
                             <th id="sortEmployeeComplaints" style="cursor: pointer;">Số lần</th>
                         </tr>
                         </thead>
-                        <tbody id="employeeComplaintTable"></tbody>
+                        <tbody id="employeeComplaintTable">
+                        @foreach ($employeeComplaints as $complaint)
+                            <tr>
+                                <td>{{ $complaint->complaint_by_id }}</td>
+                                <td>{{ $complaint->count }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -85,7 +93,14 @@
                             <th id="sortCustomerComplaints" style="cursor: pointer;">Số lần</th>
                         </tr>
                         </thead>
-                        <tbody id="customerComplaintTable"></tbody>
+                        <tbody id="customerComplaintTable">
+                        @foreach ($customerComplaints as $complaint)
+                            <tr>
+                                <td>{{ $complaint->complaint_by_id }}</td>
+                                <td>{{ $complaint->count }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -94,45 +109,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        document.getElementById('filterBtn').addEventListener('click', function() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            window.location.href = `/admin/report/complaint?startDate=${startDate}&endDate=${endDate}`;
+        });
         document.addEventListener('DOMContentLoaded', function () {
-            // Thống kê
-            document.getElementById('totalComplaints').innerText = 50;
-            document.getElementById('pendingComplaints').innerText = 20;
-            document.getElementById('resolvedComplaints').innerText = 30;
-
-            // Biểu đồ tròn
             const ctx = document.getElementById('complaintPieChart').getContext('2d');
             new Chart(ctx, {
                 type: 'pie',
                 data: {
                     labels: ['Khách hàng', 'Nhân viên'],
                     datasets: [{
-                        data: [60, 40],
+                        data: [{{ $complaintByCustomer }}, {{ $complaintByEmployee }}],
                         backgroundColor: ['#28a745', '#007bff'],
                     }]
                 },
                 options: { responsive: true }
             });
-
-            // Bảng dữ liệu
-            const employeeData = [
-                { id: 'NV001', count: 5 },
-                { id: 'NV002', count: 3 },
-                { id: 'NV003', count: 8 },
-            ];
-            const customerData = [
-                { id: 'KH001', count: 4 },
-                { id: 'KH002', count: 7 },
-                { id: 'KH003', count: 2 },
-            ];
-
-            const renderTable = (data, tableId) => {
-                const tbody = document.getElementById(tableId);
-                tbody.innerHTML = data.map(d => `<tr><td>${d.id}</td><td>${d.count}</td></tr>`).join('');
-            };
-
-            renderTable(employeeData, 'employeeComplaintTable');
-            renderTable(customerData, 'customerComplaintTable');
         });
     </script>
 @endsection

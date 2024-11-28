@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "order_id": 1001,
+        "revenue_percent": 10,
+        "revenue_amount": 100000
+    },
+    {
+        "id": 2,
+        "order_id": 1002,
+        "revenue_percent": 10,
+        "revenue_amount": 150000
+    }
+]

@@ -29,7 +29,7 @@
             <div class="card card-stats">
                 <div class="card-body">
                     <h5 class="text-center">Tổng đơn hàng</h5>
-                    <h3 class="text-center" id="totalOrders">0</h3>
+                    <h3 class="text-center" id="totalOrders">{{ $totalOrders }}</h3>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="card card-stats">
                 <div class="card-body">
                     <h5 class="text-center">Đơn hàng bị hủy</h5>
-                    <h3 class="text-center" id="canceledOrders">0</h3>
+                    <h3 class="text-center" id="canceledOrders">{{ $canceledOrders }}</h3>
                 </div>
             </div>
         </div>
@@ -63,18 +63,8 @@
 
         <!-- Biểu đồ cột -->
         <div class="col-md-9">
-            <div class="form-inline mb-3">
-                <label for="timeFilter" class="mr-2">Chọn loại thời gian:</label>
-                <select id="timeFilter" class="form-control">
-                    <option value="month">Theo tháng</option>
-                    <option value="quarter">Theo quý</option>
-                    <option value="year">Theo năm</option>
-                </select>
-            </div>
-
             <div class="chart-section container">
                 <canvas id="ordersChart" style="height: 400px;"></canvas>
-
             </div>
         </div>
     </div>
@@ -82,50 +72,31 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Dummy data
-        const updateStats = () => {
-            document.getElementById('totalOrders').innerText = 120;
-            document.getElementById('averageRatings').innerText = 4.5;
-            document.getElementById('canceledOrders').innerText = 5;
-        };
-
+        document.getElementById('filterBtn').addEventListener('click', function() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            window.location.href = `/admin/report/order?startDate=${startDate}&endDate=${endDate}`;
+        });
         const statusCtx = document.getElementById('statusPieChart').getContext('2d');
         const statusPieChart = new Chart(statusCtx, {
             type: 'pie',
             data: {
-                labels: ['Hoàn tất', 'Đang xử lý', 'Đã hủy'],
+                labels: @json($orderStatusCounts->pluck('status')),
                 datasets: [{
-                    data: [80, 30, 5],
+                    data: @json($orderStatusCounts->pluck('count')),
                     backgroundColor: ['#28a745', '#ffc107', '#dc3545']
                 }]
             }
         });
 
         const ordersCtx = document.getElementById('ordersChart').getContext('2d');
-
-        // Tạo dữ liệu mẫu cho các loại thời gian
-        const chartData = {
-            month: {
-                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-                data: [10, 20, 15, 25, 30, 40, 50, 45, 35, 30, 25, 20]
-            },
-            quarter: {
-                labels: ['Quý 1', 'Quý 2', 'Quý 3', 'Quý 4'],
-                data: [45, 90, 75, 50]
-            },
-            year: {
-                labels: ['2021', '2022', '2023'],
-                data: [120, 200, 150]
-            }
-        };
-
-        let ordersChart = new Chart(ordersCtx, {
+        const ordersChart = new Chart(ordersCtx, {
             type: 'bar',
             data: {
-                labels: chartData.month.labels,
+                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
                 datasets: [{
                     label: 'Số lượng đơn hàng',
-                    data: chartData.month.data,
+                    data: @json($monthlyData),
                     backgroundColor: 'rgba(54, 162, 235, 0.6)'
                 }]
             },
@@ -139,13 +110,5 @@
                 }
             }
         });
-
-        document.getElementById('timeFilter').addEventListener('change', (e) => {
-            const filter = e.target.value;
-            ordersChart.data.labels = chartData[filter].labels;
-            ordersChart.data.datasets[0].data = chartData[filter].data;
-            ordersChart.update();
-        });
-
     </script>
 @endsection

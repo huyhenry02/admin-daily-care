@@ -101,9 +101,8 @@ class OrderController extends Controller
                     $complaint->fill($input);
                     $complaint->save();
 
-                    $point = $input['point'];
                     $cleaner = $complaint->order->cleaner;
-                    $cleaner->point += $point;
+                    $cleaner->account_balance += $input['amount'];
                     $cleaner->save();
                     break;
             }

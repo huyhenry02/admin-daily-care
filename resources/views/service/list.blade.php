@@ -20,7 +20,7 @@
                         <th scope="col">Tên dịch vụ</th>
                         <th scope="col">Số giờ thự hiện</th>
                         <th scope="col">Giá</th>
-                        <th scope="col" width="10%"></th>
+                        <th scope="col" width="15%"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,21 +33,21 @@
                                 {{ number_format($service->price) }} VNĐ
                             </td>
                             <td class="text-center">
-                                <div class="btn-group dropdown">
-                                    <button
-                                        class="btn btn-primary dropdown-toggle"
-                                        type="button"
-                                        data-bs-toggle="dropdown"
-                                    >
-                                        Chọn hành động
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a class="dropdown-item" href="#">Sửa thông tin</a>
-                                            <a class="dropdown-item" href="{{ route('service.delete', $service->id) }}">Xóa dịch vụ</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <a href="#"
+                                   class="btn btn-sm btn-warning"
+                                   title="Sửa">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="#"
+                                   class="btn btn-sm btn-primary"
+                                   title="Xem">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="{{ route('service.delete', $service->id) }}"
+                                   class="btn btn-sm btn-danger"
+                                   title="Xóa">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

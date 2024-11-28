@@ -26,7 +26,7 @@
                     @foreach( $complaints as $key => $complaint)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>ĐH-000{{ $complaint->order_id }}</td>
+                            <td>{{ $complaint->order_id }}</td>
                             <td>{{ $complaint->complaintBy?->name ?? '' }}</td>
                             <td>{{ $complaint->description ?? '' }}</td>
                             <td>
@@ -40,7 +40,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('order.showDetailComplaint', $complaint->id) }}"
-                                   class="btn btn-primary-outline">
+                                   class="btn btn-primary">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>

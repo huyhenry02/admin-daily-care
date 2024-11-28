@@ -45,20 +45,11 @@ use App\Models\User;
                                     @endswitch
                                 </td>
                                 <td class="text-center">
-                                    <div class="btn-group dropdown">
-                                        <button
-                                            class="btn btn-primary dropdown-toggle"
-                                            type="button"
-                                            data-bs-toggle="dropdown"
-                                        >
-                                            Chọn hành động
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Xóa tài khoản</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <a href="#"
+                                       class="btn btn-sm btn-danger"
+                                       title="Xóa">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
