@@ -20,7 +20,7 @@
                         <th scope="col">Tên dịch vụ</th>
                         <th scope="col">Số giờ thự hiện</th>
                         <th scope="col">Giá</th>
-                        <th scope="col" width="15%"></th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
