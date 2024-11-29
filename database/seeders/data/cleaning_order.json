@@ -68,7 +68,7 @@
         "order_id": 1009,
         "total_price": 700000,
         "deposit": 200000,
-        "status": "rejected",
+        "status": "processing",
         "start_time": "2024-11-19T11:00:00",
         "service_cleaning_hour_id": 2,
         "note": "Dọn bếp và kho chứa đồ",

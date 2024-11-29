@@ -19,11 +19,11 @@ class OrderController extends Controller
         $orders = Order::all();
         foreach ($orders as $order) {
             $order->is_highlighted = false;
-
-            if (
-                $order->status === Order::STATUS_GOING &&
-                $order->updated_at->diffInHours(now()) >= 2
-            ) {
+            if ($order->service_type === Order::SERVICE_TYPE_CLEAN) {
+                if ($order->status === Order::STATUS_GOING && $order->cleaningOrder->start_time < now()) {
+                    $order->is_highlighted = true;
+                }
+            }else if ($order->status === Order::STATUS_GOING && $order->marketOrder->delivery_time < now()) {
                 $order->is_highlighted = true;
             }
         }

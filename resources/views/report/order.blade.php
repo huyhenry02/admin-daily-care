@@ -84,7 +84,7 @@
                 labels: @json($orderStatusCounts->pluck('status')),
                 datasets: [{
                     data: @json($orderStatusCounts->pluck('count')),
-                    backgroundColor: ['#28a745', '#ffc107', '#dc3545']
+                    backgroundColor: ['#28a745', '#ffc107', '#dc3545', '#3556dc']
                 }]
             }
         });

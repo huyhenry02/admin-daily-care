@@ -77,7 +77,7 @@
                             />
                         </div>
                         <span class="profile-username">
-                      <span class="op-7">Hi,</span>
+                      <span class="op-7">Xin chào,</span>
                       <span class="fw-bold">{{ auth()->user()->name ?? '' }}</span>
                     </span>
                     </a>
@@ -93,19 +93,14 @@
                                         />
                                     </div>
                                     <div class="u-text">
-                                        <h4>Hizrian</h4>
+                                        <h4>{{ auth()->user()->name ?? '' }}</h4>
                                         <p class="text-muted">{{ auth()->user()->email ?? '' }}</p>
-                                        <a
-                                            href="#"
-                                            class="btn btn-xs btn-secondary btn-sm"
-                                        >View Profile</a
-                                        >
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('auth.postLogout') }}">Logout</a>
+                                <a class="dropdown-item" href="{{ route('auth.postLogout') }}">Đăng xuất</a>
                             </li>
                         </div>
                     </ul>

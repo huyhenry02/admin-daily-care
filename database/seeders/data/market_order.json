@@ -6,7 +6,7 @@
         "service_price": 120000,
         "expect_price": 200000,
         "bought_price": 195000,
-        "status": "completed",
+        "status": "processing",
         "delivery_time": "2024-11-20T10:00:00",
         "note": "Mua rau củ quả tươi",
         "created_at": "2024-11-19T09:00:00",

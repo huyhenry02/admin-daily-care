@@ -57,7 +57,7 @@
                             <strong>Bằng Chứng:</strong>
                         </div>
                         <div class="col-md-8">
-                            <span>{{ $complaint->evidence ?? 'N/A' }}</span>
+                            <img src="{{ $complaint->evidence ?? '' }}" alt="Bằng chứng" style="max-width: 300px; max-height: 400px">
                         </div>
                     </div>
                     <div class="row mb-3">
