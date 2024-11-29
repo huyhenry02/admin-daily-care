@@ -33,16 +33,6 @@
                                 {{ number_format($service->price) }} VNĐ
                             </td>
                             <td class="text-center">
-                                <a href="#"
-                                   class="btn btn-sm btn-warning"
-                                   title="Sửa">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                <a href="#"
-                                   class="btn btn-sm btn-primary"
-                                   title="Xem">
-                                    <i class="fa fa-eye"></i>
-                                </a>
                                 <a href="{{ route('service.delete', $service->id) }}"
                                    class="btn btn-sm btn-danger"
                                    title="Xóa">
