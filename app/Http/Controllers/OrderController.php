@@ -17,6 +17,16 @@ class OrderController extends Controller
     public function showIndex(): View|Factory|Application
     {
         $orders = Order::all();
+        foreach ($orders as $order) {
+            $order->is_highlighted = false;
+
+            if (
+                $order->status === Order::STATUS_GOING &&
+                $order->updated_at->diffInHours(now()) >= 2
+            ) {
+                $order->is_highlighted = true;
+            }
+        }
         return view('order.list'
             , [
                 'orders' => $orders

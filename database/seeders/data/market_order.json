@@ -1,15 +1,67 @@
 [
     {
-        "id": 1001,
-        "order_id": 1001,
+        "id": 1000,
+        "order_id": 1000,
         "deposit_price": 50000,
-        "service_price": 150000,
+        "service_price": 120000,
         "expect_price": 200000,
         "bought_price": 195000,
         "status": "completed",
-        "delivery_time": "2024-11-20T10:30:00",
-        "note": "Mua thực phẩm tươi và giao nhanh",
+        "delivery_time": "2024-11-20T10:00:00",
+        "note": "Mua rau củ quả tươi",
+        "created_at": "2024-11-19T09:00:00",
+        "updated_at": "2024-11-20T11:00:00"
+    },
+    {
+        "id": 1001,
+        "order_id": 1001,
+        "deposit_price": 70000,
+        "service_price": 150000,
+        "expect_price": 250000,
+        "bought_price": 240000,
+        "status": "processing",
+        "delivery_time": "2024-11-20T12:00:00",
+        "note": "Mua thịt, cá và gia vị",
         "created_at": "2024-11-19T10:00:00",
-        "updated_at": "2024-11-20T12:00:00"
+        "updated_at": "2024-11-20T10:30:00"
+    },
+    {
+        "id": 1002,
+        "order_id": 1002,
+        "deposit_price": 40000,
+        "service_price": 100000,
+        "expect_price": 180000,
+        "bought_price": 175000,
+        "status": "completed",
+        "delivery_time": "2024-11-20T14:00:00",
+        "note": "Mua đồ khô và gia vị nấu ăn",
+        "created_at": "2024-11-19T11:00:00",
+        "updated_at": "2024-11-20T15:00:00"
+    },
+    {
+        "id": 1003,
+        "order_id": 1003,
+        "deposit_price": 60000,
+        "service_price": 140000,
+        "expect_price": 230000,
+        "bought_price": 225000,
+        "status": "rejected",
+        "delivery_time": "2024-11-20T16:00:00",
+        "note": "Mua trái cây nhập khẩu",
+        "created_at": "2024-11-19T12:00:00",
+        "updated_at": "2024-11-20T16:30:00"
+    },
+    {
+        "id": 1004,
+        "order_id": 1004,
+        "deposit_price": 55000,
+        "service_price": 130000,
+        "expect_price": 200000,
+        "bought_price": null,
+        "status": "pending",
+        "delivery_time": "2024-11-21T10:00:00",
+        "note": "Mua bánh kẹo và nước uống",
+        "created_at": "2024-11-19T13:00:00",
+        "updated_at": "2024-11-20T13:00:00"
     }
 ]

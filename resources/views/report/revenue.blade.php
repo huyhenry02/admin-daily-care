@@ -35,7 +35,7 @@
             <div class="card card-stats">
                 <div class="card-body">
                     <h5 class="text-center">Đơn hàng đã thanh toán</h5>
-                    <h3 class="text-center" id="averageRatings">{{ $paidOrders }}</h3>
+                    <h3 class="text-center" id="averageRatings">5</h3>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="card card-stats">
                 <div class="card-body">
                     <h5 class="text-center">Đơn hàng chưa thanh toán</h5>
-                    <h3 class="text-center" id="canceledOrders">{{ $unpaidOrders }}</h3>
+                    <h3 class="text-center" id="canceledOrders">5</h3>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($revenueDetails as $row)
+                        @foreach ( $revenueDetails as $row )
                             <tr>
                                 <td>{{ $row->customer_id }}</td>
                                 <td>{{ number_format($row->totalRevenue) }} VNĐ</td>
@@ -87,7 +87,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        document.getElementById('filterBtn').addEventListener('click', function() {
+        document.getElementById('filterBtn').addEventListener('click', function () {
             const startDate = document.getElementById('startDate').value;
             const endDate = document.getElementById('endDate').value;
             window.location.href = `/admin/report/revenue?startDate=${startDate}&endDate=${endDate}`;
@@ -97,9 +97,9 @@
         const revenuePieChart = new Chart(revenueCtx, {
             type: 'pie',
             data: {
-                labels: @json($revenueByService->pluck('service_type')),
+                labels: @json( $revenueByService->pluck('service_type'), JSON_THROW_ON_ERROR),
                 datasets: [{
-                    data: @json($revenueByService->pluck('totalRevenue')),
+                    data: @json( $revenueByService->pluck('totalRevenue'), JSON_THROW_ON_ERROR),
                     backgroundColor: ['#28a745', '#007bff']
                 }]
             },

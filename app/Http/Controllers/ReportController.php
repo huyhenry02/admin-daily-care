@@ -208,16 +208,14 @@ class ReportController extends Controller
             })
             ->groupBy('complaint_by_id')
             ->get();
-
-        // Trả về view với dữ liệu
-        return view('report.complaint', compact(
-            'totalComplaints',
-            'pendingComplaints',
-            'resolvedComplaints',
-            'complaintByCustomer',
-            'complaintByEmployee',
-            'employeeComplaints',
-            'customerComplaints'
-        ));
+        return view('report.complaint', [
+            'totalComplaints' => $totalComplaints,
+            'pendingComplaints' => $pendingComplaints,
+            'resolvedComplaints' => $resolvedComplaints,
+            'complaintByCustomer' => $complaintByCustomer,
+            'complaintByEmployee' => $complaintByEmployee,
+            'employeeComplaints' => $employeeComplaints,
+            'customerComplaints' => $customerComplaints,
+        ]);
     }
 }

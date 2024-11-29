@@ -30,8 +30,8 @@
                     <tbody>
                     @foreach( $orders as $key => $order)
                         <tr>
-                            <td>{{ $key+1 }}</td>
-                            <td>{{ $order->id }}</td>
+                            <td style="background-color: {{ $order->is_highlighted ? '#ffcccb' : 'transparent' }}">{{ $key+1 }}</td>
+                            <td style="background-color: {{ $order->is_highlighted ? '#ffcccb' : 'transparent' }}">{{ $order->id }}</td>
                             <td>{{ $order->customer?->name ?? '' }}</td>
                             <td>
                                 @switch( $order->service_type)
