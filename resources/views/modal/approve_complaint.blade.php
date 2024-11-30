@@ -17,10 +17,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="form-inline">
-                            @if( $complaintBy->role_type === User::ROLE_CLEANER)
-                                <label for="timeType" class="mr-2">Số tiền hoàn về cho nhân viên (VND):</label>
-                                <input type="number" name="amount" id="amount" class="form-control" value="0">
-                            @else
+                            @if( $complaintBy->role_type === User::ROLE_CUSTOMER)
                                 <label for="timeType" class="mr-2">Điểm bị trừ của nhân viên:</label>
                                 <input type="number" name="point" id="point" class="form-control" value="0">
                             @endif

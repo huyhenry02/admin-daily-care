@@ -16,8 +16,6 @@ class Contract extends Model
         'name',
         'start_date',
         'end_date',
-        'terms',
-        'commission',
         'attachment_file',
         'status',
     ];

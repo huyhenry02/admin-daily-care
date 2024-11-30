@@ -1,3 +1,4 @@
+@php use App\Models\Complaint; @endphp
 @extends('layouts.main')
 @section('content')
     <div
@@ -7,13 +8,16 @@
             <h3 class="fw-bold mb-3">Thông tin khiếu nại</h3>
         </div>
         <div class="ms-md-auto py-2 py-md-0 d-flex">
-            <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#confirmModal">
-                Xác nhận
-            </button>
-
-            <button type="button" class="btn btn-danger btn-round ms-2" data-bs-toggle="modal" data-bs-target="#rejectModal">
-                Từ chối
-            </button>
+            @if( $complaint->status === Complaint::STATUS_PENDING )
+                <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal"
+                        data-bs-target="#confirmModal">
+                    Xác nhận
+                </button>
+                <button type="button" class="btn btn-danger btn-round ms-2" data-bs-toggle="modal"
+                        data-bs-target="#rejectModal">
+                    Từ chối
+                </button>
+            @endif
         </div>
     </div>
     <div class="row">
@@ -57,7 +61,8 @@
                             <strong>Bằng Chứng:</strong>
                         </div>
                         <div class="col-md-8">
-                            <img src="{{ $complaint->evidence ?? '' }}" alt="Bằng chứng" style="max-width: 300px; max-height: 400px">
+                            <img src="{{ $complaint->evidence ?? '' }}" alt="Bằng chứng"
+                                 style="max-width: 300px; max-height: 400px">
                         </div>
                     </div>
                     <div class="row mb-3">

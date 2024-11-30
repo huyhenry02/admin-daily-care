@@ -110,10 +110,6 @@ class OrderController extends Controller
                     $input['status'] = Complaint::STATUS_APPROVED;
                     $complaint->fill($input);
                     $complaint->save();
-
-                    $cleaner = $complaint->order->cleaner;
-                    $cleaner->account_balance += $input['amount'];
-                    $cleaner->save();
                     break;
             }
             DB::commit();

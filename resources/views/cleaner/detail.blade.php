@@ -204,36 +204,24 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <div class="btn-group dropdown">
-                                            <button
-                                                class="btn btn-primary dropdown-toggle"
-                                                type="button"
-                                                data-bs-toggle="dropdown"
-                                            >
-                                                Chọn hành động
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li>
-                                                    <button class="dropdown-item"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#editContractModal"
-                                                            data-cleaner-id="{{ $cleaner->id }}"
-                                                            data-contract-id="{{ $contract->id }}"
-                                                            data-name="{{ $contract->name }}"
-                                                            data-commission="{{ $contract->commission }}"
-                                                            data-start-date="{{ $contract->start_date }}"
-                                                            data-end-date="{{ $contract->end_date }}"
-                                                            data-terms="{{ $contract->terms }}"
-                                                            data-attachment-file="{{ $contract->attachment_file  }}"
-                                                            data-status="{{ $contract->status }}">
+                                        <button class="btn btn-sm btn-warning"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#editContractModal"
+                                                data-cleaner-id="{{ $cleaner->id }}"
+                                                data-contract-id="{{ $contract->id }}"
+                                                data-name="{{ $contract->name }}"
+                                                data-start-date="{{ $contract->start_date }}"
+                                                data-end-date="{{ $contract->end_date }}"
+                                                data-attachment-file="{{ $contract->attachment_file  }}"
+                                                data-status="{{ $contract->status }}">
 
-                                                        Sửa thông tin
-                                                    </button>
-
-                                                    <a class="dropdown-item" href="{{ route('cleaner.deleteContract', $contract->id) }}">Xóa hợp đồng</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                        <a href="{{ route('cleaner.deleteContract', $contract->id) }}"
+                                           class="btn btn-sm btn-danger"
+                                           title="Xóa">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

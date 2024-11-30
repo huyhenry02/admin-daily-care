@@ -11,13 +11,9 @@
                         @csrf
                         <input type="hidden" id="cleaner_id" name="cleaner_id" value="">
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <label for="name" class="form-label">Tên hợp đồng</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên hợp đồng" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="commission" class="form-label">Hoa hồng (%)</label>
-                                <input type="number" class="form-control" id="commission" name="commission" placeholder="Nhập tỷ lệ hoa hồng" min="0" step="0.1" required>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -31,20 +27,8 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="terms" class="form-label">Điều khoản</label>
-                            <textarea class="form-control" id="terms" name="terms" rows="4" placeholder="Nhập điều khoản hợp đồng" required></textarea>
-                        </div>
-                        <div class="mb-3">
                             <label for="attachment_file" class="form-label">File đính kèm</label>
                             <input type="file" class="form-control" id="attachment_file" name="attachment_file" accept=".pdf,.doc,.docx" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="status" class="form-label">Trạng thái</label>
-                            <select class="form-select" id="status" name="status" required>
-                                <option value="" selected disabled>Chọn trạng thái</option>
-                                <option value="active">Đang hoạt động</option>
-                                <option value="inactive">Đã kết thúc</option>
-                            </select>
                         </div>
                     </form>
                 </div>

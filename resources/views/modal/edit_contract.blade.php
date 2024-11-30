@@ -12,13 +12,9 @@
                         <input type="hidden" id="edit_cleaner_id" name="cleaner_id" value="">
                         <input type="hidden" id="edit_contract_id" name="contract_id" value="">
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <label for=edit_"name" class="form-label">Tên hợp đồng</label>
                                 <input type="text" class="form-control" id="edit_name" name="name" placeholder="Nhập tên hợp đồng">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="edit_commission" class="form-label">Hoa hồng (%)</label>
-                                <input type="number" class="form-control" id="edit_commission" name="commission" placeholder="Nhập tỷ lệ hoa hồng" min="0" step="0.1">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -30,10 +26,6 @@
                                 <label for="edit_end_date" class="form-label">Ngày kết thúc</label>
                                 <input type="date" class="form-control" id="edit_end_date" name="end_date">
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit_terms" class="form-label">Điều khoản</label>
-                            <textarea class="form-control" id="edit_terms" name="terms" rows="4" placeholder="Nhập điều khoản hợp đồng"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="edit_attachment_file" class="form-label">File đính kèm</label>
@@ -63,10 +55,8 @@
         const cleanerIdInput = document.getElementById('edit_cleaner_id');
         const contractIdInput = document.getElementById('edit_contract_id');
         const nameInput = document.getElementById('edit_name');
-        const commissionInput = document.getElementById('edit_commission');
         const startDateInput = document.getElementById('edit_start_date');
         const endDateInput = document.getElementById('edit_end_date');
-        const termsInput = document.getElementById('edit_terms');
         const statusSelect = document.getElementById('edit_status');
         const currentFileText = document.getElementById('currentFile');
 
@@ -75,10 +65,8 @@
             cleanerIdInput.value = button.getAttribute('data-cleaner-id');
             contractIdInput.value = button.getAttribute('data-contract-id');
             nameInput.value = button.getAttribute('data-name');
-            commissionInput.value = button.getAttribute('data-commission');
             startDateInput.value = button.getAttribute('data-start-date');
             endDateInput.value = button.getAttribute('data-end-date');
-            termsInput.value = button.getAttribute('data-terms');
             statusSelect.value = button.getAttribute('data-status');
             const attachmentFileValue = button.getAttribute('data-attachment-file');
             if (attachmentFileValue) {

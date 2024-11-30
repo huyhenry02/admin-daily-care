@@ -34,10 +34,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->date('start_date');
             $table->date('end_date');
-            $table->text('terms')->nullable();
-            $table->integer('commission')->default(0);
             $table->string('attachment_file')->nullable();
-            $table->enum('status', ['inactive', 'active']);
+            $table->enum('status', ['inactive', 'active'])->default('active');
             $table->timestamps();
         });
 
