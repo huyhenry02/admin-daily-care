@@ -11,6 +11,18 @@
             <a href="{{ route('order.showCreate') }}" class="btn btn-primary btn-round">Thêm mới Đơn hàng</a>
         </div>
     </div>
+    <div class="row mb-2" style="margin-top: -25px; margin-left: -14px">
+        <div class="col-2">
+            <button
+                type="button"
+                class="btn btn-outline-danger w-100"
+                onclick="window.location.href='{{ route('order.showIndex', ['highlighted' => 'true']) }}'"
+            >
+                Những đơn cần chú ý
+            </button>
+
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card card-stats card-round">

@@ -14,7 +14,7 @@ use Illuminate\Foundation\Application;
 
 class OrderController extends Controller
 {
-    public function showIndex(): View|Factory|Application
+    public function showIndex(Request $request): View|Factory|Application
     {
         $orders = Order::all();
         foreach ($orders as $order) {
@@ -26,6 +26,9 @@ class OrderController extends Controller
             }else if ($order->status === Order::STATUS_GOING && $order->marketOrder->delivery_time < now()) {
                 $order->is_highlighted = true;
             }
+        }
+        if ($request->has('highlighted') && $request->highlighted == true) {
+            $orders = $orders->filter(fn($order) => $order->is_highlighted);
         }
         return view('order.list'
             , [
