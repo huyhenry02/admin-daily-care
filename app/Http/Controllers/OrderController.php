@@ -93,25 +93,10 @@ class OrderController extends Controller
     {
         DB::beginTransaction();
         try {
-            $user = $complaint->complaintBy;
             $input = $request->all();
-            switch ($user->role_type) {
-                case User::ROLE_CUSTOMER:
-                    $input['status'] = Complaint::STATUS_APPROVED;
-                    $complaint->fill($input);
-                    $complaint->save();
-
-                    $point = $input['point'];
-                    $cleaner = $complaint->order->cleaner;
-                    $cleaner->point -= $point;
-                    $cleaner->save();
-                    break;
-                case User::ROLE_CLEANER:
-                    $input['status'] = Complaint::STATUS_APPROVED;
-                    $complaint->fill($input);
-                    $complaint->save();
-                    break;
-            }
+            $input['status'] = Complaint::STATUS_APPROVED;
+            $complaint->fill($input);
+            $complaint->save();
             DB::commit();
             return redirect()->back()->with('success', 'Complaint has been confirmed');
         } catch (\Exception $e) {

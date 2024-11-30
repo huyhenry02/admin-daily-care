@@ -15,16 +15,6 @@
                         <textarea name="admin_decision" id="adminDecision" class="form-control" rows="4"
                                   placeholder="Nhập quyết định của bạn..."></textarea>
                     </div>
-                    <div class="mb-3">
-                        <div class="form-inline">
-                            @if( $complaintBy->role_type === User::ROLE_CUSTOMER)
-                                <label for="timeType" class="mr-2">Điểm bị trừ của nhân viên:</label>
-                                <input type="number" name="point" id="point" class="form-control" value="0">
-                            @endif
-
-                        </div>
-
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
